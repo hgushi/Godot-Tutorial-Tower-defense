@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_legacy.png-f2c1089b7360ae638c4a628c45213197.stex"
+path="res://.import/monochrome_transparent.png-b60ca74f89702595986f336ab6d70e0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilemap/tileset_legacy.png"
-dest_files=[ "res://.import/tileset_legacy.png-f2c1089b7360ae638c4a628c45213197.stex" ]
+source_file="res://Assets/Sprites/Tilesheet/monochrome_transparent.png"
+dest_files=[ "res://.import/monochrome_transparent.png-b60ca74f89702595986f336ab6d70e0d.stex" ]
 
 [params]
 

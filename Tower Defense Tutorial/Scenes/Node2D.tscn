@@ -7,5 +7,9 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 1, 0 )
 curve = SubResource( 1 )

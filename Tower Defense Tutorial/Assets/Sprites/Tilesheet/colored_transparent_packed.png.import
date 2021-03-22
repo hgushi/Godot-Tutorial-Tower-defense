@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sample_fantasy.png-bdfcbdd9f87af93663c6aa66e8992d7e.stex"
+path="res://.import/colored_transparent_packed.png-25c91ee82a9c00c12290240ab3fa8d9d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Sample_fantasy.png"
-dest_files=[ "res://.import/Sample_fantasy.png-bdfcbdd9f87af93663c6aa66e8992d7e.stex" ]
+source_file="res://Assets/Sprites/Tilesheet/colored_transparent_packed.png"
+dest_files=[ "res://.import/colored_transparent_packed.png-25c91ee82a9c00c12290240ab3fa8d9d.stex" ]
 
 [params]
 

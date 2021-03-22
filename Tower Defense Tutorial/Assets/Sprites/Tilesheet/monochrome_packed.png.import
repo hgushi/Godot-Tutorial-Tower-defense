@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monochrome_packed.png-ecdf40039d8bfcd76beb2a9f82317be9.stex"
+path="res://.import/monochrome_packed.png-0d26ba5321cc39b848d513c108711a94.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilesheet/monochrome_packed.png"
-dest_files=[ "res://.import/monochrome_packed.png-ecdf40039d8bfcd76beb2a9f82317be9.stex" ]
+source_file="res://Assets/Sprites/Tilesheet/monochrome_packed.png"
+dest_files=[ "res://.import/monochrome_packed.png-0d26ba5321cc39b848d513c108711a94.stex" ]
 
 [params]
 
