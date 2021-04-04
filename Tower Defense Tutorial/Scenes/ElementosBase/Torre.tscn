@@ -15,11 +15,9 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 118, 321, 17, 17 )
-region_filter_clip = true
+region_rect = Rect2( 119, 323, 16, 16 )
 
 [node name="AtaqueTimer" type="Timer" parent="."]
 wait_time = 2.0
-[connection signal="area_entered" from="." to="." method="_on_Torre_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Torre_area_exited"]
 [connection signal="timeout" from="AtaqueTimer" to="." method="_on_AtaqueTimer_timeout"]

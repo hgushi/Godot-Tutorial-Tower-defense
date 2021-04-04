@@ -19,6 +19,10 @@ config/name="Tower Defense Tutorial"
 run/main_scene="res://Scenes/ArenaTeste/ArenaTeste.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/aspect="keep"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

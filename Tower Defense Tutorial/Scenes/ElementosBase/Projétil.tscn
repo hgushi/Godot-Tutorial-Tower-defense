@@ -4,19 +4,23 @@
 [ext_resource path="res://Scenes/ElementosBase/Projétil.gd" type="Script" id=2]
 
 [sub_resource type="SegmentShape2D" id=1]
-a = Vector2( 7.42365, -5.76318 )
-b = Vector2( -6.60712, 8.54821 )
+a = Vector2( 8, -8 )
+b = Vector2( -8, 8 )
 
 [node name="Projétil" type="Area2D" groups=[
 "shot",
 ]]
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"shot",
+]]
 position = Vector2( 0.840897, -2.52269 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="CollisionShape2D"]
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 611, 49, 17, 17 )
+region_rect = Rect2( 612, 51, 16, 16 )

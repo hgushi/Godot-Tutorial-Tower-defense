@@ -3,46 +3,57 @@ extends Area2D
 export var custo = 5
 export var raio_de_alcance = 50
 export var intervalo_de_ataque = 1
-export var sprite = Rect2( 11, 32, 17, 17 )
-export var velocidade_projetil = 100
+export var sprite = Rect2( 119, 323, 16, 16 )
+export var velocidade_projetil = 200
 
 var projetil = load("res://Scenes/ElementosBase/Projétil.tscn")
 var inimigo_alvo = Area2D
 var inimigos_no_alcance = []
+var target_set = false
 
 # Ao entrar em cena, define as propriedades da torre de acordo com seu tipo
 func _ready():
 	$Alcance.shape.set_radius(raio_de_alcance)
 	$AtaqueTimer.wait_time = intervalo_de_ataque
-#	$Sprite.region_rect = sprite
+	$Sprite.region_rect = sprite
 
-# A cada frame,inicia o timer de ataque se houver um inimigo no alcance
+# A cada frame, se houver um inimigo alvo, inicia o timer de ataque, senão define o alvo
 func _physics_process(delta):
-	if len(inimigos_no_alcance) != 0 and $AtaqueTimer.is_stopped():
-		$AtaqueTimer.start()
+	if target_set and $AtaqueTimer.is_stopped(): $AtaqueTimer.start()
+	else: _set_Target()
 
-# Sempre que um inimigo entra no alcance, escolhe um novo alvo
-func _on_Torre_area_entered(area: Area2D):
-	inimigos_no_alcance = get_overlapping_areas()
-	_set_Target()
-
-# Se o inimigo alvo sair do alcance, e houverem outros inimgos no alcance, escolhe um novo alvo
-func _on_Torre_area_exited(area: Area2D):
-	inimigos_no_alcance = get_overlapping_areas()
-	if area.get_parent() == inimigo_alvo and inimigos_no_alcance != []:
+# Se o inimigo alvo deixar de existir, escolhe um novo alvo
+func on_Enemy_dead(inimigo):
+	if inimigo == inimigo_alvo:
+		target_set = false
+		$AtaqueTimer.stop()
 		_set_Target()
 
-# Identifica qual dos inimigos no alcance está mais avançado no caminho e o torna o novo alvo
+# Se o inimigo alvo sair do alcance, escolhe um novo alvo
+func _on_Torre_area_exited(area: Area2D):
+	if area.get_parent() == inimigo_alvo:
+		target_set = false
+		_set_Target()
+
+# Define o inimigo alvo, identificando entre os inimigos no alcance qual está mais avançado no caminho
 func _set_Target():
-	inimigo_alvo = inimigos_no_alcance[0].get_parent()
-	for inimigo in inimigos_no_alcance:
-		inimigo = inimigo.get_parent() # Pega o PathFollow2D em vez do Area2D para determinar quem está mais avançado no caminho
-		if (inimigo.is_in_group("mob") # Garante que o nodo observado é um inimigo e não outra torre ou projétil
-			and inimigo.offset > inimigo_alvo.offset):
-			inimigo_alvo = inimigo
+	for area in get_overlapping_areas():
+		if area.is_in_group("mob"): inimigos_no_alcance.append(area)
+	
+	if !inimigos_no_alcance.empty() and inimigos_no_alcance[0] != null:
+		inimigo_alvo = inimigos_no_alcance[0].get_parent()
+		for inimigo in inimigos_no_alcance:
+			inimigo = inimigo.get_parent() # Pega o PathFollow2D em vez do Area2D identificado na colisão
+			if inimigo.offset > inimigo_alvo.offset: inimigo_alvo = inimigo
+		target_set = true
 
 # A cada intervalo de ataque determinado, instancia um projetil e atira na direção do inimigo alvo
 func _on_AtaqueTimer_timeout():
-	var tiro = projetil.instance()
-	self.get_parent().add_child(tiro)
-	tiro.velocity = (inimigo_alvo.position - tiro.position).normalized() * velocidade_projetil
+	if target_set:
+		var tiro = projetil.instance()
+		self.get_parent().add_child(tiro)
+		tiro.position = self.position
+		var direction = (inimigo_alvo.position - tiro.position).normalized()
+		tiro.velocity = direction * velocidade_projetil
+		tiro.rotation = asin(direction.x) # ta dando errado, triste :c
+# Problema: não está acertando o inimigo direito porque ele se move antes de a flecha chegar lá, então teria que usar não a posição atual do inimigo e sim a posição onde ele vai estar no tempo até a flecha chegar lá (?)
