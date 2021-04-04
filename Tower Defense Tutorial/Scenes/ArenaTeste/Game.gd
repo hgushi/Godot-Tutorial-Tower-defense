@@ -1,6 +1,6 @@
 extends Node2D
 
-var tower = load("Colocar torre aqui") #colocar torre aqui
+var tower = load("res://Scenes/Torre.tscn") #colocar torre aqui
 var mob = load("res://Scenes/Enemy.tscn")
 var instance
 
@@ -36,12 +36,12 @@ func _on_WaveTimer_timeout():
 
 func _on_MobTimer_timeout():
 	instance = mob.instance()
-	$Path2D.add_child(instance)
+	$Caminho.add_child(instance)
 	mobs_left -=1
 	if mobs_left <= 0:
 		$MobTimer.stop()
 		wave =+ 1
 		if wave < len(wave_mobs):
-			$waveTimer.start()
+			$WaveTimer.start()
 	
 	
