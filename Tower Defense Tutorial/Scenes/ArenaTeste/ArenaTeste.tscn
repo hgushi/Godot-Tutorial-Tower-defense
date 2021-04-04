@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/ArenaTeste/Game.gd" type="Script" id=1]
 [ext_resource path="res://teste_tileset2.tres" type="TileSet" id=2]
+[ext_resource path="res://Scenes/ElementosBase/Torre.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -38,4 +39,7 @@ margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Torre" parent="." instance=ExtResource( 3 )]
+position = Vector2( 71.2508, 56.7492 )
 [connection signal="timeout" from="MobTimer" to="." method="_on_Mob_timer_timeout"]

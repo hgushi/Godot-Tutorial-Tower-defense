@@ -1,6 +1,6 @@
 extends Node2D
 
-var tower = load("res://Scenes/Torre.tscn") #colocar torre aqui
+var tower = load("res://Scenes/Torre.tscn")
 var mob = load("res://Scenes/Enemy.tscn")
 var instance
 
