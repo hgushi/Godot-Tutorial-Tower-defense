@@ -20,7 +20,8 @@ script = ExtResource( 2 )
 position = Vector2( 0.840897, -2.52269 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="CollisionShape2D"]
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.840897, -2.52269 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 612, 51, 16, 16 )

@@ -4,12 +4,11 @@ export var custo = 5
 export var raio_de_alcance = 50
 export var intervalo_de_ataque = 1
 export var sprite = Rect2( 119, 323, 16, 16 )
-export var velocidade_projetil = 200
 
-var projetil = load("res://Scenes/ElementosBase/Projétil.tscn")
+var tipo_de_projetil = load("res://Scenes/ElementosBase/Projétil.tscn")
 var inimigo_alvo = Area2D
 var inimigos_no_alcance = []
-var target_set = false
+var target_set = false # Variável de passagem que define se há um alvo definido
 
 # Ao entrar em cena, define as propriedades da torre de acordo com seu tipo
 func _ready():
@@ -26,7 +25,6 @@ func _physics_process(delta):
 func on_Enemy_dead(inimigo):
 	if inimigo == inimigo_alvo:
 		target_set = false
-		$AtaqueTimer.stop()
 		_set_Target()
 
 # Se o inimigo alvo sair do alcance, escolhe um novo alvo
@@ -50,10 +48,6 @@ func _set_Target():
 # A cada intervalo de ataque determinado, instancia um projetil e atira na direção do inimigo alvo
 func _on_AtaqueTimer_timeout():
 	if target_set:
-		var tiro = projetil.instance()
-		self.get_parent().add_child(tiro)
-		tiro.position = self.position
-		var direction = (inimigo_alvo.position - tiro.position).normalized()
-		tiro.velocity = direction * velocidade_projetil
-		tiro.rotation = asin(direction.x) # ta dando errado, triste :c
-# Problema: não está acertando o inimigo direito porque ele se move antes de a flecha chegar lá, então teria que usar não a posição atual do inimigo e sim a posição onde ele vai estar no tempo até a flecha chegar lá (?)
+		var projetil = tipo_de_projetil.instance()
+		projetil.direction = (inimigo_alvo.position - self.position).normalized()
+		self.add_child(projetil)

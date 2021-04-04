@@ -18,10 +18,10 @@ func reached_end():
 	emit_signal("dead", self)
 	queue_free()
 
-func _on_Area2D_area_entered(area):
-	if area.is_in_group("shot"):
-		area.queue_free()
-		hp -= 1
+func _on_Area2D_area_entered(projetil):
+	if projetil.is_in_group("shot"):
+		hp -= projetil.hit
+		projetil.queue_free()
 		if hp <= 0:
 			get_parent().get_parent().add_cash(5)
 			emit_signal("dead", self)
