@@ -1,26 +1,47 @@
 extends Node2D
 
-onready var mob = preload("res://Scenes/Mob1.tscn")
+var tower = load("Colocar torre aqui") #colocar torre aqui
+var mob = load("res://Scenes/Enemy.tscn")
+var instance
 
-var mobs_remaining = 0
+var building = false
+
+var cash = 50
+var wave = 0
+var mobs_left = 0
+var wave_mobs = [5, 15, 30]
 
 func _ready():
-	$Mob_timer.start(1)
-	mobs_remaining = 5
+	$WaveTimer.start()
 
-func _on_Mob_timer_timeout():
-	var mob_instance = null
-	mob_instance = mob.instance()
+func _physics_process(delta):
+	$CashLabel.text = "cash: " + str(cash)
+
+func _on_TextureButton_pressed():
+	if !building and cash >= 25:
+		instance = tower.instance()
+		add_child(instance)
+		building = true
+
+func tower_built():
+	building = false
+	cash -= 25
+
+func add_cash(num):
+		cash += num
+
+func _on_WaveTimer_timeout():
+	mobs_left = wave_mobs[wave]
+	$MobTimer.start()
+
+func _on_MobTimer_timeout():
+	instance = mob.instance()
+	$Path2D.add_child(instance)
+	mobs_left -=1
+	if mobs_left <= 0:
+		$MobTimer.stop()
+		wave =+ 1
+		if wave < len(wave_mobs):
+			$waveTimer.start()
 	
-	mob_instance.position = $Start_position.position
-	mob_instance.destination = $End_position.position
-	
-	var path = $Navigation2D.get_simple_path($Start_position.position, $End_position.position)
-	mob_instance.set_path(path)
-	
-	$entities.add_child(mob_instance)
-	
-	mobs_remaining -= 1
-	if mobs_remaining > 0:
-		$Mob_timer.start(1)
 	
