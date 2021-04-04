@@ -42,4 +42,5 @@ __meta__ = {
 
 [node name="Torre" parent="." instance=ExtResource( 3 )]
 position = Vector2( 71.2508, 56.7492 )
-[connection signal="timeout" from="MobTimer" to="." method="_on_Mob_timer_timeout"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]

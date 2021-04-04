@@ -1,7 +1,7 @@
 extends Node2D
 
-var tower = load("res://Scenes/Torre.tscn")
-var mob = load("res://Scenes/Enemy.tscn")
+var tower = load("res://Scenes/ElementosBase/Torre.tscn")
+var mob = load("res://Scenes/ElementosBase/Enemy.tscn")
 var instance
 
 var building = false
