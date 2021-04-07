@@ -13,4 +13,4 @@ func _ready():
 	self.rotation = asin(direction.x) # ta dando errado, triste :c
 
 func _physics_process(delta):
-    position += velocity * delta
+	position += velocity * delta

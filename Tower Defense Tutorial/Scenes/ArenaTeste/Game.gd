@@ -17,9 +17,11 @@ func _ready():
 func _physics_process(delta):
 	$CashLabel.text = "cash: " + str(cash)
 
-func _on_TextureButton_pressed():
+func _on_BuildTowerButton_pressed(ID, pos):
+	print("pos=", pos)
 	if !building and cash >= 25:
 		instance = tower.instance()
+		instance.set_position(pos)
 		add_child(instance)
 		building = true
 
