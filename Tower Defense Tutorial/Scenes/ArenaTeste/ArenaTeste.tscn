@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/ArenaTeste/Game.gd" type="Script" id=1]
 [ext_resource path="res://teste_tileset2.tres" type="TileSet" id=2]
-[ext_resource path="res://Scenes/ElementosBase/Torre.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/ElementosBase/BuildTowerButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]
@@ -41,16 +40,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Torre3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 136.378, 120.933 )
-
-[node name="Torre2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 216.208, 88.569 )
-
 [node name="BuildTowerButton" parent="." instance=ExtResource( 4 )]
 margin_left = 58.5118
 margin_top = 46.4379
 margin_right = 84.5118
 margin_bottom = 66.4379
+items = [ "Torre 1    $10", null, 0, false, false, 0, 0, null, "", false, "Torre 2    $20", null, 0, false, false, 1, 0, null, "", false, "Torre 3    $40", null, 0, false, false, 2, 0, null, "", false ]
+
+[node name="BuildTowerButton3" parent="." instance=ExtResource( 4 )]
+margin_left = 107.329
+margin_top = 110.113
+margin_right = 133.329
+margin_bottom = 130.113
+
+[node name="BuildTowerButton5" parent="." instance=ExtResource( 4 )]
+margin_left = 58.9462
+margin_top = 93.7157
+margin_right = 84.9462
+margin_bottom = 113.716
+
+[node name="BuildTowerButton6" parent="." instance=ExtResource( 4 )]
+margin_left = 155.439
+margin_top = 108.852
+margin_right = 181.439
+margin_bottom = 128.852
+
+[node name="BuildTowerButton2" parent="." instance=ExtResource( 4 )]
+margin_left = 170.365
+margin_top = 77.5284
+margin_right = 196.365
+margin_bottom = 97.5284
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
