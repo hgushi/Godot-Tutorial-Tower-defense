@@ -22,8 +22,5 @@ func _on_item_pressed(ID):
 	self.disabled = true
 	self.visible = false
 	var pos = rect_position + rect_size / 2
-	print("rect_position =",rect_position)
-	print("rect_size =",rect_size)
 	emit_signal("build", ID, pos)
-	print(popup.get_item_text(ID), " pressed")
 

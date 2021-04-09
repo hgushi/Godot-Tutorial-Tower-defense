@@ -29,13 +29,11 @@ func _physics_process(delta):
 		$AtaqueTimer.start()
 
 func _on_Torre_area_exited(area: Area2D):
-#	if area.is_in_group("mob"): inimigos_no_alcance.erase(weakref(area.get_parent()))
-	if (area.get_parent() == inimigo_alvo or
-		area.get_parent() == inimigo_alvo.get_ref()):
-			inimigo_alvo = weakref(null)
+	if area.get_parent() == inimigo_alvo.get_ref(): inimigo_alvo = weakref(null)
 
 # A cada intervalo de ataque determinado, instancia um projetil e atira na direção do inimigo alvo
 func _on_AtaqueTimer_timeout():
-	var projetil = tipo_de_projetil.instance()
-	projetil.direction = (inimigo_alvo.get_ref().position - self.position).normalized()
-	self.add_child(projetil)
+	if not !inimigo_alvo.get_ref():
+		var projetil = tipo_de_projetil.instance()
+		projetil.direction = (inimigo_alvo.get_ref().position - self.position).normalized()
+		self.add_child(projetil)
