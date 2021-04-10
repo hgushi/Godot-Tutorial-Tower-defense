@@ -75,5 +75,12 @@ margin_top = 46.0639
 margin_right = 180.633
 margin_bottom = 66.0639
 items = [ "Torre 1    $10", null, 0, false, false, 0, 0, null, "", false, "Torre 2    $20", null, 0, false, false, 1, 0, null, "", false, "Torre 3    $40", null, 0, false, false, 2, 0, null, "", false ]
+
+[node name="BuildTowerButton4" parent="." instance=ExtResource( 4 )]
+margin_left = 218.781
+margin_top = 45.7937
+margin_right = 244.781
+margin_bottom = 65.7937
+items = [ "Torre 1    $10", null, 0, false, false, 0, 0, null, "", false, "Torre 2    $20", null, 0, false, false, 1, 0, null, "", false, "Torre 3    $40", null, 0, false, false, 2, 0, null, "", false ]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]

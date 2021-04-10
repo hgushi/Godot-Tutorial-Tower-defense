@@ -3,6 +3,7 @@ extends MenuButton
 signal build
 
 var popup
+var TowerValue
 
 func _ready():
 	modulate = Color(1, 1, 1, 0.6)
@@ -21,6 +22,12 @@ func _on_BuildTowerButton_mouse_exited():
 func _on_item_pressed(ID):
 	self.disabled = true
 	self.visible = false
-	var pos = rect_position + rect_size / 2
-	emit_signal("build", ID, pos)
+	var TowerPosition = rect_position + rect_size / 2
+	if ID == 0:
+		TowerValue = 10
+	elif ID == 1:
+		TowerValue = 20
+	else:
+		TowerValue = 40	
+	emit_signal("build", ID, TowerPosition, TowerValue)
 

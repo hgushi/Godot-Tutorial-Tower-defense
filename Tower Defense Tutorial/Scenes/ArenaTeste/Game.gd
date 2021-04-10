@@ -6,7 +6,7 @@ var instance
 
 var building = false
 
-var cash = 30
+var cash = 80
 var wave = 0
 var mobs_left = 0
 var wave_mobs = [1, 5, 10]
@@ -18,17 +18,16 @@ func _physics_process(delta):
 	$CashLabel.text = "cash: " + str(cash)
 	$MobTimer.wait_time = rand_range(0.5, 2) #Coloquei só para testar deixar um pouco mais aleatório
 
-func _on_BuildTowerButton_pressed(ID, pos):
-	#if !building and cash >= 25:
-	if cash >= 10: #trocar pelo preço da torre escolhida
+func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
+	if cash >= TowerValue:
 		instance = tower.instance()
-		instance.set_position(pos)
+		instance.set_position(TowerPosition)
 		add_child(instance)
 #	building = true
 #
 #func tower_built():
 #	building = false
-	cash -= 10 #trocar pelo preço da torre escolhida
+	cash -= TowerValue
 
 func add_cash(num):
 		cash += num
