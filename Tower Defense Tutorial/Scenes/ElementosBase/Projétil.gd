@@ -10,6 +10,7 @@ var direction = Vector2.ZERO
 func _ready():
 	$Sprite.region_rect = sprite
 	velocity = direction * velocidade
+	
 	if direction.y > 0: self.rotation += acos(direction.x)
 	else: self.rotation -= acos(direction.x)
 
