@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tower_spot.png-92e8759df8900792f7f633cf8a9564bd.stex"
+path="res://.import/Preview.png-159eb01bbfb4c9a5658021c143c348fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tower_spot.png"
-dest_files=[ "res://.import/tower_spot.png-92e8759df8900792f7f633cf8a9564bd.stex" ]
+source_file="res://Assets/Sprites/Exemplos/Preview.png"
+dest_files=[ "res://.import/Preview.png-159eb01bbfb4c9a5658021c143c348fa.stex" ]
 
 [params]
 

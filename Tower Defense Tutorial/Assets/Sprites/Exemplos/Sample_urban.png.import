@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sample_platformer.png-f0e1e3679e1ad0c34ca678d5a5130e5c.stex"
+path="res://.import/Sample_urban.png-0d1cd933f7c1a0e851dc89e60da63bc5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Sample_platformer.png"
-dest_files=[ "res://.import/Sample_platformer.png-f0e1e3679e1ad0c34ca678d5a5130e5c.stex" ]
+source_file="res://Assets/Sprites/Exemplos/Sample_urban.png"
+dest_files=[ "res://.import/Sample_urban.png-0d1cd933f7c1a0e851dc89e60da63bc5.stex" ]
 
 [params]
 
