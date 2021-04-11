@@ -21,6 +21,8 @@ config/icon="res://icon.png"
 
 [display]
 
+window/size/height=608
+window/size/resizable=false
 window/dpi/allow_hidpi=true
 window/stretch/aspect="keep"
 
