@@ -57,17 +57,33 @@ PopupMenu/styles/panel = SubResource( 2 )
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
 
-[node name="BuildTowerButton" type="MenuButton"]
-margin_left = -12.9676
-margin_top = -9.99894
-margin_right = 13.0324
-margin_bottom = 10.0011
+[node name="BuildTowerButton" type="Control"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildTowerButton" type="MenuButton" parent="."]
+margin_left = -4.9676
+margin_top = -1.99894
+margin_right = 21.0324
+margin_bottom = 18.0011
 rect_pivot_offset = Vector2( 1, 1 )
 theme = SubResource( 3 )
 custom_constants/hseparation = 10
 icon = ExtResource( 1 )
-items = [ "Torre Básica    $10", null, 0, false, false, 0, 0, null, "", false, "Torre Área    $20", null, 0, false, false, 1, 0, null, "", false, "Torre Mina    $40", null, 0, false, false, 2, 0, null, "", false ]
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PopupMenu" type="PopupMenu" parent="BuildTowerButton"]
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="Timer" type="Timer" parent="BuildTowerButton/PopupMenu"]
+wait_time = 0.3
+one_shot = true

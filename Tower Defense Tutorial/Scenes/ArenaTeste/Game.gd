@@ -12,7 +12,7 @@ var building = false
 var cash = 80
 var wave = 0
 var mobs_left = 0
-var wave_mobs = [1, 5, 10, 20, 30]
+var wave_mobs = [1, 5, 10, 20, 30, 50]
 
 func _ready():
 	$WaveTimer.start()
@@ -25,14 +25,15 @@ func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 	if cash >= TowerValue:
 		if ID == 0: instance = t_basica.instance()
 		elif ID == 1: instance = t_area.instance()
-#		if ID == 1: instance = t_basica.instance()
+		if ID == 2: instance = t_area.instance()
 		instance.set_position(TowerPosition)
 		add_child(instance)
 #	building = true
 #
 #func tower_built():
 #	building = false
-	cash -= TowerValue
+	if cash >= TowerValue:
+		cash -= TowerValue
 
 func add_cash(num):
 		cash += num
