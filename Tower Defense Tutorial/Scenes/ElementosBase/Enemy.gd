@@ -15,8 +15,10 @@ func reached_end():
 func _on_Area2D_area_entered(projetil):
 	if projetil.is_in_group("shot"):
 		hp -= projetil.hit
+		$ArrowSFX.play()
 		projetil.queue_free()
 		if hp <= 0:
+			$DeathSFX.play()
 			get_parent().get_parent().add_cash(5)
 			queue_free()
 			

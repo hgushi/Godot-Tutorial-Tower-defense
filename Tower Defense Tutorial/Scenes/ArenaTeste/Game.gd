@@ -10,16 +10,19 @@ var instance
 var building = false
 
 var cash = 80
+var health = 10
 var wave = 0
 var mobs_left = 0
-var wave_mobs = [1, 5, 10, 20, 30, 50]
+var wave_mobs = [1, 10, 20, 30]
 
 func _ready():
 	$WaveTimer.start()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$CashLabel.text = "cash: " + str(cash)
-	$MobTimer.wait_time = rand_range(0.5, 3) #Coloquei só para testar deixar um pouco mais aleatório
+	$HealthLabel.text = "health: " + str(health)
+	$WaveLabel.text = "wave: " + str(wave) 
+	$MobTimer.wait_time = rand_range(0.5, 2) #Coloquei só para testar deixar um pouco mais aleatório
 
 func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 	if cash >= TowerValue:
@@ -45,6 +48,7 @@ func _on_WaveTimer_timeout():
 func _on_MobTimer_timeout():
 	instance = mob.instance()
 	$Caminho.add_child(instance)
+	$MobSFX.play()
 	mobs_left -=1
 	if mobs_left <= 0:
 		$MobTimer.stop()

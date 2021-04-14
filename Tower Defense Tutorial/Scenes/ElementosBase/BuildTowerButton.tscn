@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Sprites/tower_spot.png" type="Texture" id=1]
+[ext_resource path="res://Assets/tower_spot.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/ElementosBase/BuildTowerButton.gd" type="Script" id=2]
+[ext_resource path="res://musics/Construction.wav" type="AudioStream" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.305882, 0.498039, 0.6, 1 )
@@ -84,6 +85,6 @@ __meta__ = {
 margin_right = 16.0
 margin_bottom = 16.0
 
-[node name="Timer" type="Timer" parent="BuildTowerButton/PopupMenu"]
-wait_time = 0.3
-one_shot = true
+[node name="ConstructSFX" type="AudioStreamPlayer" parent="BuildTowerButton"]
+stream = ExtResource( 3 )
+volume_db = -18.0

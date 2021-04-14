@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/ArenaTeste/Game.gd" type="Script" id=1]
 [ext_resource path="res://teste_tileset2.tres" type="TileSet" id=2]
+[ext_resource path="res://musics/DST-TowerDefenseTheme_1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/ElementosBase/BuildTowerButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://musics/qubodup-GhostMoan03.wav" type="AudioStream" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -38,6 +40,31 @@ one_shot = true
 [node name="CashLabel" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthLabel" type="Label" parent="."]
+margin_left = 80.0
+margin_right = 122.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaveLabel" type="Label" parent="."]
+margin_left = 160.0
+margin_right = 200.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelLabel" type="Label" parent="."]
+margin_left = 280.0
+margin_right = 330.0
+margin_bottom = 14.0
+text = "Level: 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -119,5 +146,13 @@ margin_left = 56.0
 margin_top = 88.0
 margin_right = 72.0
 margin_bottom = 104.0
+
+[node name="MobSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="MusicLevel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
+autoplay = true
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
