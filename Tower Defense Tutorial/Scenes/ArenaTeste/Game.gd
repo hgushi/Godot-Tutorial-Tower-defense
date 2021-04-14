@@ -1,9 +1,6 @@
 extends Node2D
 
-var t_basica = load("res://Scenes/TorreBasica.tscn")
-var t_area = load("res://Scenes/TorreÁrea.tscn")
-#var t_mina = load("res://Scenes/TorreMina.tscn")
-
+var tower = load("res://Scenes/ElementosBase/Torre.tscn")
 var mob = load("res://Scenes/ElementosBase/Enemy.tscn")
 var instance
 
@@ -12,20 +9,20 @@ var building = false
 var cash = 80
 var wave = 0
 var mobs_left = 0
-var wave_mobs = [1, 5, 10, 20, 30]
+var wave_mobs = [1, 5, 10]
 
 func _ready():
 	$WaveTimer.start()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$CashLabel.text = "cash: " + str(cash)
-	$MobTimer.wait_time = rand_range(0.5, 3) #Coloquei só para testar deixar um pouco mais aleatório
+	#$HealthLabel.text = "health: " + str(health)
+	$WaveLabel.text = "wave: " + str(wave) 
+	$MobTimer.wait_time = rand_range(0.5, 2) #Coloquei só para testar deixar um pouco mais aleatório
 
-func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
+func _on_BuildTowerButton_pressed(_ID, TowerPosition, TowerValue):
 	if cash >= TowerValue:
-		if ID == 0: instance = t_basica.instance()
-		elif ID == 1: instance = t_area.instance()
-#		if ID == 1: instance = t_basica.instance()
+		instance = tower.instance()
 		instance.set_position(TowerPosition)
 		add_child(instance)
 #	building = true
@@ -44,6 +41,7 @@ func _on_WaveTimer_timeout():
 func _on_MobTimer_timeout():
 	instance = mob.instance()
 	$Caminho.add_child(instance)
+	$MobSFX.play()
 	mobs_left -=1
 	if mobs_left <= 0:
 		$MobTimer.stop()

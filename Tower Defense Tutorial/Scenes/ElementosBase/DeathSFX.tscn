@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://musics/49127__aesqe__monster-growl-01.wav" type="AudioStream" id=1]
+
+[node name="DeathSFX" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )
+volume_db = -10.0

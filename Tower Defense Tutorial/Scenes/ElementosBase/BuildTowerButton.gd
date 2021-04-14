@@ -22,6 +22,7 @@ func _on_BuildTowerButton_mouse_exited():
 func _on_item_pressed(ID):
 	self.disabled = true
 	self.visible = false
+	$ConstructSFX.play()
 	var TowerPosition = rect_position + rect_size / 2
 	if ID == 0:
 		TowerValue = 10

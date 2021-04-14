@@ -8,7 +8,7 @@ var destination = Vector2()
 
 
 func ready():
-	pass
+	$MobSFX.play()
 
 func _physics_process(delta):
 	if path.size() > 0:
@@ -19,7 +19,7 @@ func _physics_process(delta):
 
 func move_along_path(distance):
 	var start_pos = position
-	for i in range(path.size()):
+	for _i in range(path.size()):
 		var distance_to_next = start_pos.distance_to(path[0])
 		if distance <= distance_to_next and distance > 0:
 			position = start_pos.linear_interpolate(path[0], distance / distance_to_next)
