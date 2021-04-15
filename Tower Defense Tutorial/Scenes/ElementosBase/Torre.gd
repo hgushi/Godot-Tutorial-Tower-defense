@@ -13,7 +13,7 @@ func _ready():
 	$AtaqueTimer.wait_time = intervalo_de_ataque
 
 # A cada frame, se houver um inimigo alvo, inicia o timer de ataque, senão define o alvo
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !inimigo_alvo.get_ref():
 		$AtaqueTimer.stop()
 		
