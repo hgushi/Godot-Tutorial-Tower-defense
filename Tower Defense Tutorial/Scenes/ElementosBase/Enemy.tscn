@@ -24,6 +24,7 @@ extents = Vector2( 8, 8 )
 [node name="Enemy" type="PathFollow2D" groups=[
 "mob",
 ]]
+rotate = false
 loop = false
 script = ExtResource( 1 )
 
@@ -34,7 +35,10 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
 frames = SubResource( 1 )
 animation = "Idle"
+<<<<<<< HEAD
 frame = 5
+=======
+>>>>>>> 35386efdb34285927d5c16ce4cc01f8c5afce07a
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

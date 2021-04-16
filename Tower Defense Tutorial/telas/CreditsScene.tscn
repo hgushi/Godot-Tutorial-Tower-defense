@@ -5,7 +5,7 @@
 [ext_resource path="res://telas/Quit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://images/start-assets/new_theme.tres" type="Theme" id=4]
 [ext_resource path="res://telas/CreditsScene.gd" type="Script" id=5]
-[ext_resource path="res://musics/Grassy-World-_8-Bit_Orchestral-Overture_-Main-Title-Theme_1.ogg" type="AudioStream" id=6]
+[ext_resource path="res://musics/abc.ogg" type="AudioStream" id=6]
 
 [node name="CreditsScene" type="Control"]
 anchor_right = 1.0
@@ -16,8 +16,8 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 3.1748
-margin_right = 1026.17
+margin_left = 2.11534
+margin_right = 1025.11
 margin_bottom = 596.0
 color = Color( 0.0431373, 0.239216, 0.913725, 1 )
 __meta__ = {

@@ -16,7 +16,7 @@ func _ready():
 	connect("destroy", self.get_parent(), "_on_Tower_destroyed")
 
 # A cada frame, se houver um inimigo alvo, inicia o timer de ataque, senão define o alvo
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !inimigo_alvo.get_ref():
 		$AtaqueTimer.stop()
 		
