@@ -1,6 +1,8 @@
 extends Area2D
 class_name Torre
 
+signal destroy
+
 export var custo = 5
 export var raio_de_alcance = 50
 export var intervalo_de_ataque = 1
@@ -11,6 +13,7 @@ var inimigo_alvo = weakref(null)
 func _ready():
 	$Alcance.shape.set_radius(raio_de_alcance)
 	$AtaqueTimer.wait_time = intervalo_de_ataque
+	connect("destroy", self.get_parent(), "_on_Tower_destroyed")
 
 # A cada frame, se houver um inimigo alvo, inicia o timer de ataque, senão define o alvo
 func _physics_process(delta):

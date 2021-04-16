@@ -23,7 +23,6 @@ func _on_BuildTowerButton_mouse_exited():
 	modulate = Color(1, 1, 1, 0.3)
 
 func _on_item_pressed(ID):
-	$ConstructSFX.play()
 	var TowerPosition = self.get_parent().rect_position + self.get_parent().rect_size / 2
 	if ID == 0:
 		TowerValue = 10
@@ -35,4 +34,5 @@ func _on_item_pressed(ID):
 		self.disabled = true
 		self.visible = false
 	emit_signal("build", ID, TowerPosition, TowerValue)
+	$ConstructSFX.play()
 
