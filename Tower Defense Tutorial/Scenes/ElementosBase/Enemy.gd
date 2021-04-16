@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 # Declare member variables here. Examples:
-var speed = 20
+var speed = 15
 var hp = 10
 
 func _physics_process(delta):

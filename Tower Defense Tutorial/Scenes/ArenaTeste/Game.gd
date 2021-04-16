@@ -15,7 +15,7 @@ var cash = 30
 var health = 10
 var wave = 0
 var mobs_left = 0
-var wave_mobs = [1, 10, 20, 25]
+var wave_mobs = [5, 10, 20, 30]
 
 var towers = []
 
@@ -26,7 +26,7 @@ func _physics_process(_delta):
 	$CashLabel.text = "cash: " + str(cash)
 	$HealthLabel.text = "health: " + str(health)
 	$WaveLabel.text = "wave: " + str(wave) 
-	$MobTimer.wait_time = rand_range(0.5, 2) #Coloquei só para testar deixar um pouco mais aleatório
+	$MobTimer.wait_time = rand_range(0.5, 3) #Coloquei só para testar deixar um pouco mais aleatório
 
 func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 	if cash >= TowerValue:
@@ -63,7 +63,6 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		for tower in towers:
 			var distance_from_center = sqrt(pow((event.global_position.x - tower.global_position.x), 2) + pow((event.global_position.y - tower.global_position.y), 2))
-			print(distance_from_center)
 			if distance_from_center <= 16:
 				instance = tower_button.instance()
 				instance.rect_position = tower.position - Vector2(8,8)
