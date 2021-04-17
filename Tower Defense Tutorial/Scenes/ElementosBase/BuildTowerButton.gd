@@ -11,9 +11,9 @@ func _ready():
 	connect("mouse_exited", self, "_on_BuildTowerButton_mouse_exited")
 	connect("build", self.get_parent().get_parent(), "_on_BuildTowerButton_pressed")
 	popup = get_popup()
-	get_popup().add_item("Torre Básica  $10")
-	get_popup().add_item("Torre Área     $20")
-	get_popup().add_item("Torre Mina     $25")
+	get_popup().add_item("Basic Tower    $10")
+	get_popup().add_item("Bomb Tower   $25")
+	get_popup().add_item("Area Tower     $40")
 	popup.connect("id_pressed", self, "_on_item_pressed")
 
 func _on_BuildTowerButton_mouse_entered():
@@ -27,10 +27,10 @@ func _on_item_pressed(ID):
 	if ID == 0:
 		TowerValue = 10
 	elif ID == 1:
-		TowerValue = 20
+		TowerValue = 25
 	else:
-		TowerValue = 25	
-	if self.get_parent().get_parent().cash >= TowerValue:
+		TowerValue = 40
+	if self.get_node("../..").cash >= TowerValue:
 		self.disabled = true
 		self.visible = false
 	emit_signal("build", ID, TowerPosition, TowerValue)

@@ -1,4 +1,4 @@
-extends "res://Scenes/ElementosBase/Torre.gd"
+extends Torre
 
 var flecha = load("res://Scenes/ElementosBase/Projétil.tscn")
 
