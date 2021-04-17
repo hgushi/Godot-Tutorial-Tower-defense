@@ -2,7 +2,7 @@ extends Node2D
 
 var t_basica = load("res://Scenes/TorreBasica.tscn")
 var t_area = load("res://Scenes/TorreÁrea.tscn")
-#var t_mina = load("res://Scenes/TorreMina.tscn")
+var t_mina = load("res://Scenes/TorreMina.tscn")
 
 var tower_button = load("res://Scenes/ElementosBase/BuildTowerButton.tscn")
 
@@ -18,9 +18,13 @@ var mobs_left = 0
 var wave_mobs = [5, 10, 20, 30]
 
 var towers = []
+var caminho = []
 
 func _ready():
 	$WaveTimer.start()
+	
+	for point in $Caminho.get_curve().get_baked_points():
+		caminho.append(to_global(point))
 
 func _physics_process(_delta):
 	$CashLabel.text = "cash: " + str(cash)
@@ -31,7 +35,7 @@ func _physics_process(_delta):
 func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 	if cash >= TowerValue:
 		if ID == 0: instance = t_basica.instance()
-		elif ID == 1: instance = t_area.instance()
+		elif ID == 1: instance = t_mina.instance()
 		if ID == 2: instance = t_area.instance()
 		
 		towers.append(instance)
@@ -62,8 +66,7 @@ func _on_MobTimer_timeout():
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		for tower in towers:
-			var distance_from_center = sqrt(pow((event.global_position.x - tower.global_position.x), 2) + pow((event.global_position.y - tower.global_position.y), 2))
-			if distance_from_center <= 16:
+			if event.global_position.distance_to(tower.global_position) <= 16:
 				instance = tower_button.instance()
 				instance.rect_position = tower.position - Vector2(8,8)
 				self.add_child(instance)
