@@ -11,8 +11,10 @@ var instance
 
 var building = false
 
-var cash = 30
+
 var lives = 10
+var cash = 300
+
 var wave = 0
 var mobs_left = 0
 var wave_mobs = [1, 3, 5, 10, 15]
@@ -24,7 +26,9 @@ func _ready():
 	$WaveTimer.start()
 	
 	for point in $Caminho.get_curve().get_baked_points():
-		caminho.append(to_global(point))
+		var ajuste = Vector2(-2, 7) #vetor de ajuste porque o get_baked entregou pontos meio shiftados
+		var desvio = Vector2(rand_range(-3, 3), rand_range(-3, 3)) #aleatorização pra ficar mais interessante a posição das bombas
+		caminho.append(to_global(point - ajuste + desvio))
 
 func _physics_process(_delta):
 	$CashLabel.text = "cash: " + str(cash)
