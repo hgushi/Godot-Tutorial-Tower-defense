@@ -14,7 +14,8 @@ func _on_AtaqueTimer_timeout():
 		var i = rand_range(0, len(caminho_no_alcance))
 		projetil.alvo = caminho_no_alcance[i]
 	
-	self.add_child(projetil)
+	projetil.position = self.position
+	get_parent().add_child(projetil)
 
 func set_Target():
 	for point in get_parent().caminho:

@@ -41,6 +41,7 @@ func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 		towers.append(instance)
 		instance.set_position(TowerPosition)
 		add_child(instance)
+		print(towers)
 		
 	if cash >= TowerValue:
 		cash -= TowerValue
@@ -74,5 +75,3 @@ func _input(event):
 				towers.erase(tower)
 				tower.queue_free()
 				break
-				
-		

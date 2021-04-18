@@ -2,7 +2,7 @@ extends Node2D
 
 var t_basica = load("res://Scenes/TorreBasica.tscn")
 var t_area = load("res://Scenes/TorreÁrea.tscn")
-#var t_mina = load("res://Scenes/TorreMina.tscn")
+var t_mina = load("res://Scenes/TorreMina.tscn")
 
 var tower_button = load("res://Scenes/ElementosBase/BuildTowerButton.tscn")
 
@@ -18,9 +18,13 @@ var mobs_left = 0
 var wave_mobs = [1, 3, 5, 10, 15]
 
 var towers = []
+var caminho = []
 
 func _ready():
 	$WaveTimer.start()
+	
+	for point in $Caminho.get_curve().get_baked_points():
+		caminho.append(to_global(point))
 
 func _physics_process(_delta):
 	$CashLabel.text = "cash: " + str(cash)
@@ -31,7 +35,7 @@ func _physics_process(_delta):
 func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 	if cash >= TowerValue:
 		if ID == 0: instance = t_basica.instance()
-		elif ID == 1: instance = t_area.instance()
+		elif ID == 1: instance = t_mina.instance()
 		if ID == 2: instance = t_area.instance()
 		
 		towers.append(instance)

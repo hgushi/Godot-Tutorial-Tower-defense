@@ -33,4 +33,5 @@ func set_Target():
 
 func _on_Torre_area_exited(area: Area2D):
 	if area.get_parent() == inimigo_alvo.get_ref(): inimigo_alvo = weakref(null)
-	if area.is_in_group("shot"): area.queue_free()
+	if area.is_in_group("shot") and not area.is_in_group("mina"):
+		area.queue_free()
