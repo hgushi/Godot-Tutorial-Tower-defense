@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Tower Defense Tutorial"
-run/main_scene="res://Scenes/ArenaTeste/ArenaTeste.tscn"
+run/main_scene="res://Scenes/ArenaTeste/Level_2.tscn"
 config/icon="res://icon.png"
 
 [autoload]

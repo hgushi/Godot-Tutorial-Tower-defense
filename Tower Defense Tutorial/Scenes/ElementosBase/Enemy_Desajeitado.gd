@@ -1,8 +1,9 @@
 extends PathFollow2D
 
 # Declare member variables here. Examples:
-var speed = 5
-var hp = 50
+var speed = 20
+var hp = 2
+signal lose_a_life
 
 func _physics_process(delta):
 	offset += speed * delta
@@ -10,6 +11,7 @@ func _physics_process(delta):
 		reached_end()
 
 func reached_end():
+	emit_signal("lose_a_life")
 	queue_free()
 
 func _on_Area2D_area_entered(projetil):

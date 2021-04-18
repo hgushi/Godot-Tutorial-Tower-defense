@@ -43,6 +43,7 @@ shape = SubResource( 2 )
 
 [node name="ArrowSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -10.0
 
 [node name="DeathSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

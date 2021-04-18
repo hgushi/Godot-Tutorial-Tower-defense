@@ -34,5 +34,5 @@ func _on_item_pressed(ID):
 		self.disabled = true
 		self.visible = false
 	emit_signal("build", ID, TowerPosition, TowerValue)
-	$ConstructSFX.play()
+	
 
