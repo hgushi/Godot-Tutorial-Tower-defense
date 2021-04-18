@@ -7,14 +7,14 @@
 extents = Vector2( 6.18739, 5.93179 )
 
 [node name="Mina" type="Area2D" groups=[
+"bomb",
 "mina",
-"shot",
 ]]
 position = Vector2( -1, 0.5 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
-"shot",
+"bomb",
 ]]
 position = Vector2( 2, -3.5 )
 shape = SubResource( 1 )

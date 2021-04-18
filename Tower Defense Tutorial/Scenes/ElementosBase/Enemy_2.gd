@@ -3,6 +3,7 @@ extends PathFollow2D
 # Declare member variables here. Examples:
 var speed = 25
 var hp = 5
+signal lose_a_life
 
 func _physics_process(delta):
 	offset += speed * delta
@@ -10,6 +11,7 @@ func _physics_process(delta):
 		reached_end()
 
 func reached_end():
+	emit_signal("lose_a_life")
 	queue_free()
 
 func _on_Area2D_area_entered(projetil):
@@ -21,4 +23,11 @@ func _on_Area2D_area_entered(projetil):
 			$DeathSFX.play()
 			get_parent().get_parent().add_cash(5)
 			queue_free()
-			
+	if projetil.is_in_group("bomb"):
+		hp -= projetil.hit
+		$BombSFX.play()
+		projetil.queue_free()
+		if hp <= 0:
+			$DeathSFX.play()
+			get_parent().get_parent().add_cash(5)
+			queue_free()

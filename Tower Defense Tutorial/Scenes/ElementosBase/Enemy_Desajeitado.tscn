@@ -7,7 +7,7 @@
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="Area2D" index="0"]
-frame = 2
+frame = 0
 
 [node name="DeathSFX" parent="." index="2"]
 volume_db = 24.0
