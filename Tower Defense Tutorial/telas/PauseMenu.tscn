@@ -3,7 +3,6 @@
 [ext_resource path="res://images/start-assets/new_theme.tres" type="Theme" id=4]
 [ext_resource path="res://telas/PauseMenu.gd" type="Script" id=5]
 
-
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
@@ -28,10 +27,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -182.79
-margin_top = 17.6389
-margin_right = -130.79
-margin_bottom = 38.6389
+margin_left = -178.191
+margin_top = 14.1421
+margin_right = -126.191
+margin_bottom = 35.1422
 rect_scale = Vector2( 7, 7 )
 theme = ExtResource( 4 )
 text = "Pause"

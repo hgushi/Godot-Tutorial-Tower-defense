@@ -21,6 +21,7 @@ var towers = []
 var caminho = []
 
 func _ready():
+	$PauseMenu.visible = false
 	$WaveTimer.start()
 	
 	for point in $Caminho.get_curve().get_baked_points():
@@ -77,8 +78,31 @@ func _input(event):
 				tower.queue_free()
 				break
 				
+	
+
 		
 func lose_a_life():
 	lives -=1
 	lives = max(lives,0)
 	$LivesLabel.text = "lives: " + str(lives)
+
+
+func _on_Pause_button_down():
+	get_tree().paused = true
+	$PauseMenu.visible = true
+
+func _on_Quit_button_down():
+	get_tree().quit()
+	
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_select"):
+			get_tree().paused = true
+			$PauseMenu.visible = true
+				
+
+func _on_Continue_button_down():
+	get_tree().paused = false
+	$PauseMenu.visible = false
+
+func _on_Retry_pressed():
+	get_tree().reload_current_scene()

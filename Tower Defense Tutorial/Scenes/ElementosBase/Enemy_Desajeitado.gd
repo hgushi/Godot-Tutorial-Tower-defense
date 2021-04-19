@@ -30,5 +30,6 @@ func _on_Area2D_area_entered(projetil):
 		if hp <= 0:
 			$DeathSFX.play()
 			get_parent().get_parent().add_cash(5)
-			queue_free()
-			
+			death()
+func death():
+	queue_free()
