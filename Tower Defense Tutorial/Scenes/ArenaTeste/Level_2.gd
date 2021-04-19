@@ -105,4 +105,5 @@ func _on_Continue_button_down():
 	$PauseMenu.visible = false
 
 func _on_Retry_pressed():
+	get_tree().paused = false
 	get_tree().reload_current_scene()
