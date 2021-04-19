@@ -80,7 +80,7 @@ func _input(event):
 				
 	
 
-		
+
 func lose_a_life():
 	lives -=1
 	lives = max(lives,0)
@@ -94,11 +94,6 @@ func _on_Pause_button_down():
 func _on_Quit_button_down():
 	get_tree().quit()
 	
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_select"):
-			get_tree().paused = true
-			$PauseMenu.visible = true
-				
 
 func _on_Continue_button_down():
 	get_tree().paused = false

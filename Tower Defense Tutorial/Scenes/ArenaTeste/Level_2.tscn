@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/ElementosBase/BuildTowerButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/ArenaTeste/Level_2.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/ElementosBase/DeathSFX.tscn" type="PackedScene" id=6]
 [ext_resource path="res://musics/Construction.wav" type="AudioStream" id=7]
 [ext_resource path="res://images/start-assets/new_theme.tres" type="Theme" id=8]
+[ext_resource path="res://Scenes/ArenaTeste/PauseMenu.gd" type="Script" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -184,6 +185,7 @@ pause_mode = 2
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
