@@ -20,8 +20,26 @@ func _ready ():
 		$Blocked3.visible = false
 		$Level3.visible = true
 func _on_Level1_button_down():
-	get_tree().change_scene(scene1)
+	var erro = get_tree().change_scene(scene1)
+	if (erro == ERR_CANT_OPEN):
+		print("não consegui abrir")
+	elif (erro == ERR_CANT_CREATE):
+		print("não consegui instancia")
+	else:
+		erro
 func _on_Level2_button_down():
-	get_tree().change_scene(scene2)
+	var erro = get_tree().change_scene(scene2)
+	if (erro == ERR_CANT_OPEN):
+		print("não consegui abrir")
+	elif (erro == ERR_CANT_CREATE):
+		print("não consegui instancia")
+	else:
+		erro
 func _on_Level3_button_down():
-	get_tree().change_scene(scene3)
+	var erro = get_tree().change_scene(scene3)
+	if (erro == ERR_CANT_OPEN):
+		print("não consegui abrir")
+	elif (erro == ERR_CANT_CREATE):
+		print("não consegui instancia")
+	else:
+		erro

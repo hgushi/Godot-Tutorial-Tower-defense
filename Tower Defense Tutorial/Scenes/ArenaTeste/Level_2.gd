@@ -38,7 +38,7 @@ func _physics_process(_delta):
 		get_node("CanvasLayer").get_node("LoseScene").get_node("LoseMusic").play()
 		get_node("CanvasLayer").get_node("LoseScene").visible = true
 		get_tree().paused = true
-	if wave >= 5 and mobs_left  == 0 :
+	if wave >= 5 and get_node("Caminho").get_children().size() == 0 :
 		get_node("CanvasLayer").get_node("WinScene").visible = true 
 		get_node("CanvasLayer").get_node("WinScene").get_node("WinMusic").play()
 		get_tree().paused = true
