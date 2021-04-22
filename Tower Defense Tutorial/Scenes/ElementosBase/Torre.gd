@@ -27,7 +27,6 @@ func set_Target():
 			if area.is_in_group("mob"):
 				if !inimigo_alvo.get_ref() or area.get_parent().offset > inimigo_alvo.get_ref().offset:
 					inimigo_alvo = weakref(area.get_parent())
-					
 	if $AtaqueTimer.is_stopped() and not !inimigo_alvo.get_ref():
 		$AtaqueTimer.start()
 

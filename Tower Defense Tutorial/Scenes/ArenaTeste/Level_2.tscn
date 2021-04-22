@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/ElementosBase/BuildTowerButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/ArenaTeste/Level_2.gd" type="Script" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://musics/Construction.wav" type="AudioStream" id=7]
 [ext_resource path="res://images/start-assets/new_theme.tres" type="Theme" id=8]
 [ext_resource path="res://Scenes/ArenaTeste/PauseMenu.gd" type="Script" id=9]
+[ext_resource path="res://telas/LoseScene.tscn" type="PackedScene" id=10]
+[ext_resource path="res://telas/WinScene.tscn" type="PackedScene" id=11]
+[ext_resource path="res://musics/arrowHit01.wav" type="AudioStream" id=12]
+[ext_resource path="res://musics/explodemini.wav" type="AudioStream" id=13]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -165,10 +169,19 @@ volume_db = -10.0
 autoplay = true
 
 [node name="DeathSFX" parent="." instance=ExtResource( 6 )]
+volume_db = -3.0
 
 [node name="ConstructSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
 volume_db = -15.0
+
+[node name="ArrowSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+
+[node name="BombSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+volume_db = -5.0
 
 [node name="Pause" type="Button" parent="."]
 margin_left = 460.209
@@ -180,17 +193,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PauseMenu" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="PauseMenu" type="Control" parent="CanvasLayer"]
 pause_mode = 2
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+rect_scale = Vector2( 2, 2 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseMenu"]
 margin_left = -0.550613
 margin_top = -12.8502
 margin_right = 540.449
@@ -200,7 +217,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="PauseMenu"]
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu"]
 margin_left = 142.339
 margin_top = 4.49492
 margin_right = 194.339
@@ -212,7 +229,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu"]
 margin_left = 163.0
 margin_top = 99.0
 margin_right = 253.0
@@ -222,28 +239,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="Continue" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
 margin_right = 90.0
 margin_bottom = 27.0
 theme = ExtResource( 8 )
 text = "Continue"
 
-[node name="Retry" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="Retry" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
 margin_top = 31.0
 margin_right = 90.0
 margin_bottom = 58.0
 theme = ExtResource( 8 )
 text = "Retry"
 
-[node name="Quit" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="Quit" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
 margin_top = 62.0
 margin_right = 90.0
 margin_bottom = 89.0
 theme = ExtResource( 8 )
 text = "Quit"
+
+[node name="WinScene" parent="CanvasLayer" instance=ExtResource( 11 )]
+visible = false
+anchor_right = 0.978
+margin_top = -5.0
+margin_right = 30.528
+margin_bottom = 11.0
+rect_scale = Vector2( 1.01, 1.01 )
+
+[node name="LoseScene" parent="CanvasLayer" instance=ExtResource( 10 )]
+visible = false
+margin_left = -8.32834
+margin_top = -17.5256
+margin_right = -8.32837
+margin_bottom = -17.5256
+rect_scale = Vector2( 0.53, 0.53 )
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
 [connection signal="button_down" from="Pause" to="." method="_on_Pause_button_down"]
-[connection signal="button_down" from="PauseMenu/VBoxContainer/Continue" to="." method="_on_Continue_button_down"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Retry" to="." method="_on_Retry_pressed"]
-[connection signal="button_down" from="PauseMenu/VBoxContainer/Quit" to="." method="_on_Quit_button_down"]
+[connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Continue" to="." method="_on_Continue_button_down"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/Retry" to="." method="_on_Retry_pressed"]
+[connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Quit" to="." method="_on_Quit_button_down"]

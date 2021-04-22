@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 # Declare member variables here. Examples:
-var speed = 25
+var speed = 100
 var hp = 5
 signal lose_a_life
 

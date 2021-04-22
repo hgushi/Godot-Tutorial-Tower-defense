@@ -21,9 +21,12 @@ var towers = []
 var caminho = []
 
 func _ready():
-	$PauseMenu.visible = false
 	$WaveTimer.start()
+	get_node("CanvasLayer").get_node("PauseMenu").visible = false
+	get_node("CanvasLayer").get_node("LoseScene").visible = false
+	get_node("CanvasLayer").get_node("WinScene").visible = false
 	
+
 	for point in $Caminho.get_curve().get_baked_points():
 		caminho.append(to_global(point))
 
@@ -31,6 +34,14 @@ func _physics_process(_delta):
 	$CashLabel.text = "cash: " + str(cash)
 	$WaveLabel.text = "wave: " + str(wave) 
 	$MobTimer.wait_time = rand_range(0.5, 3) #Coloquei só para testar deixar um pouco mais aleatório
+	if lives <= 0:
+		get_node("CanvasLayer").get_node("LoseScene").get_node("LoseMusic").play()
+		get_node("CanvasLayer").get_node("LoseScene").visible = true
+		get_tree().paused = true
+	if wave >= 5 and mobs_left  == 0 :
+		get_node("CanvasLayer").get_node("WinScene").visible = true 
+		get_node("CanvasLayer").get_node("WinScene").get_node("WinMusic").play()
+		get_tree().paused = true
 
 func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 	if cash >= TowerValue:
@@ -77,19 +88,16 @@ func _input(event):
 				towers.erase(tower)
 				tower.queue_free()
 				break
-				
-	
-
 
 func lose_a_life():
-	lives -=1
+	lives -= 10
 	lives = max(lives,0)
 	$LivesLabel.text = "lives: " + str(lives)
 
 
 func _on_Pause_button_down():
 	get_tree().paused = true
-	$PauseMenu.visible = true
+	get_node("CanvasLayer").get_node("PauseMenu").visible = true
 
 func _on_Quit_button_down():
 	get_tree().quit()
@@ -97,8 +105,17 @@ func _on_Quit_button_down():
 
 func _on_Continue_button_down():
 	get_tree().paused = false
-	$PauseMenu.visible = false
+	get_node("CanvasLayer").get_node("PauseMenu").visible = false
 
 func _on_Retry_pressed():
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+func arrowSFX():
+	$ArrowSFX.play()
+	
+func bombSFX():
+	$BombSFX.play()
+	
+func deathSFX():
+	$DeathSFX.play()
