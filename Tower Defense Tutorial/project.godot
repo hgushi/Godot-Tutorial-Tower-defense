@@ -8,25 +8,41 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Torre",
+"language": "GDScript",
+"path": "res://Scenes/ElementosBase/Torre.gd"
+}, {
+"base": "Node2D",
+"class": "level",
+"language": "GDScript",
+"path": "res://Scenes/ArenaTeste/Level_2.gd"
+} ]
 _global_script_class_icons={
-
+"Torre": "",
+"level": ""
 }
 
 [application]
 
 config/name="Tower Defense Tutorial"
-run/main_scene="res://Scenes/ArenaTeste/ArenaTeste.tscn"
+run/main_scene="res://telas/MainMenu.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-DeathSFX="*res://Scenes/ElementosBase/DeathSFX.tscn"
 
 [display]
 
 window/dpi/allow_hidpi=true
 window/stretch/aspect="keep"
+
+[input]
+
+ui_select={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":3,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
 
 [rendering]
 

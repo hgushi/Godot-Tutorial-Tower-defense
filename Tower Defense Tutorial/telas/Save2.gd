@@ -1,7 +1,7 @@
 extends Button
 var level: int = 0
 func _on_Save_button_down():
-	level = 0
+	level = 2
 	save_game()
 func save_game():
 	var save_file : File = File.new()

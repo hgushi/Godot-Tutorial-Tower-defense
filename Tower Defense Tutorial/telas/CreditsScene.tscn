@@ -5,20 +5,21 @@
 [ext_resource path="res://telas/Quit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://images/start-assets/new_theme.tres" type="Theme" id=4]
 [ext_resource path="res://telas/CreditsScene.gd" type="Script" id=5]
-[ext_resource path="res://musics/Grassy-World-_8-Bit_Orchestral-Overture_-Main-Title-Theme_1.ogg" type="AudioStream" id=6]
+[ext_resource path="res://musics/abc.ogg" type="AudioStream" id=6]
 
 [node name="CreditsScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 6.0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 3.1748
-margin_right = 1026.17
-margin_bottom = 596.0
+margin_left = -5.0
+margin_right = 1030.0
+margin_bottom = 608.0
 color = Color( 0.0431373, 0.239216, 0.913725, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -58,7 +59,8 @@ The assets used in this game were created by:
 	DST( DST-TowerDefenseTheme): https://opengameart.org/content/tower-defense-theme
 	cynicmusic( awake10_megaWall): https://opengameart.org/content/awake-megawall-10
 	Matthew Pablo(Grassy World (8-Bit_Orchestral Overture) - Main Title Theme): https://opengameart.org/content/grassy-world-overture-8bitorchestral
-	cynicmusic(song18): https://opengameart.org/content/crystal-cave-song18"
+	cynicmusic(song18): https://opengameart.org/content/crystal-cave-song18
+ 	Lamoot(rock_breaking): https://opengameart.org/content/rockbreaking"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -72,10 +74,10 @@ margin_bottom = 517.588
 script = ExtResource( 1 )
 
 [node name="Quit" parent="." instance=ExtResource( 3 )]
-margin_left = 829.073
-margin_top = 492.662
-margin_right = 878.073
-margin_bottom = 519.662
+margin_left = 830.361
+margin_top = 494.38
+margin_right = 879.361
+margin_bottom = 521.38
 
 [node name="CreditsMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )

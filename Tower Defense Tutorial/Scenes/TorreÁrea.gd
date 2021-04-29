@@ -1,9 +1,10 @@
-extends "res://Scenes/ElementosBase/Torre.gd"
+extends Torre
 
 var flecha = load("res://Scenes/ElementosBase/Projétil.tscn")
 
 # A cada intervalo de ataque determinado, instancia 8 projeteis e atira na direção do inimigo alvo (com 22.5 graus entre eles)
 func _on_AtaqueTimer_timeout():
+	if not !inimigo_alvo.get_ref():
 		var goal = (inimigo_alvo.get_ref().position - self.position).normalized()
 		var i = 0
 		var rotation = 0

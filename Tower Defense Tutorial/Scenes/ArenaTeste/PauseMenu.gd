@@ -1,4 +1,5 @@
 extends Control
+
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_SPACE:
@@ -8,4 +9,3 @@ func _unhandled_input(event):
 			else:
 				get_tree().paused = false
 				self.visible = false
-

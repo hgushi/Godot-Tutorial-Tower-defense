@@ -47,6 +47,7 @@ __meta__ = {
 }
 
 [node name="Level2" type="Button" parent="."]
+visible = false
 margin_left = 360.624
 margin_top = 162.635
 margin_right = 443.624
@@ -59,6 +60,7 @@ __meta__ = {
 }
 
 [node name="Level3" type="Button" parent="."]
+visible = false
 margin_left = 702.864
 margin_top = 162.635
 margin_right = 785.864
