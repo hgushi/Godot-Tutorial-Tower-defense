@@ -6,6 +6,7 @@ var hp = 10
 signal lose_a_life
 onready var DeathSFX = $DeathSFX
 
+
 func _physics_process(delta):
 	offset += speed * delta
 	if unit_offset >= 1:
@@ -32,4 +33,5 @@ func _on_Area2D_area_entered(projetil):
 			DeathSFX.play()
 			get_parent().get_parent().add_cash(5)
 			queue_free()
+
 			

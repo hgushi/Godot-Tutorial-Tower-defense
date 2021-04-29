@@ -13,6 +13,7 @@ _global_script_classes=[ {
 "class": "Torre",
 "language": "GDScript",
 "path": "res://Scenes/ElementosBase/Torre.gd"
+<<<<<<< HEAD
 }, {
 "base": "Node2D",
 "class": "level",
@@ -22,6 +23,11 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Torre": "",
 "level": ""
+=======
+} ]
+_global_script_class_icons={
+"Torre": ""
+>>>>>>> 2bf15a6f6ba06c6f3360f18aa0c92373025b7abe
 }
 
 [application]
