@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/start-assets/new_theme.tres" type="Theme" id=4]
+[ext_resource path="res://telas/PauseMenu.gd" type="Script" id=5]
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = -0.095
+anchor_right = -0.095
+margin_left = 99.28
+margin_top = -5.0
+margin_right = 1124.28
+margin_bottom = 603.0
+color = Color( 0.0901961, 0.192157, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -178.191
+margin_top = 14.1421
+margin_right = -126.191
+margin_bottom = 35.1422
+rect_scale = Vector2( 7, 7 )
+theme = ExtResource( 4 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 328.0
+margin_top = 176.0
+margin_right = 418.0
+margin_bottom = 265.0
+rect_scale = Vector2( 4, 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+margin_right = 90.0
+margin_bottom = 27.0
+theme = ExtResource( 4 )
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="Button" parent="VBoxContainer"]
+margin_top = 31.0
+margin_right = 90.0
+margin_bottom = 58.0
+theme = ExtResource( 4 )
+text = "Retry"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+pause_mode = 2
+margin_top = 62.0
+margin_right = 90.0
+margin_bottom = 89.0
+theme = ExtResource( 4 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="VBoxContainer/Continue" to="." method="_on_Continue_button_down"]
+[connection signal="button_down" from="VBoxContainer/Retry" to="." method="_on_Retry_button_down"]
+[connection signal="button_down" from="VBoxContainer/Quit" to="." method="_on_Quit_button_down"]

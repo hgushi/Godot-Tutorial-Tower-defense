@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://musics/Cyberpunk-Moonlight-Sonata.ogg" type="AudioStream" id=1]
+[ext_resource path="res://telas/Save2.gd" type="Script" id=2]
+[ext_resource path="res://images/start-assets/new_theme.tres" type="Theme" id=3]
+[ext_resource path="res://telas/WinScene.gd" type="Script" id=4]
+[ext_resource path="res://telas/Save.tscn" type="PackedScene" id=5]
+
+[node name="WinScene" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+pause_mode = 2
+margin_left = -3.49689
+margin_top = 2.59054
+margin_right = 1021.5
+margin_bottom = 604.591
+color = Color( 0.0431373, 0.239216, 0.913725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YouWin!" type="Label" parent="."]
+margin_left = 296.161
+margin_top = 52.5676
+margin_right = 374.161
+margin_bottom = 73.5676
+rect_scale = Vector2( 6, 6 )
+theme = ExtResource( 3 )
+text = "You Win!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 320.0
+margin_top = 177.489
+margin_right = 422.0
+margin_bottom = 266.489
+rect_scale = Vector2( 4, 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevel" type="Button" parent="VBoxContainer"]
+margin_right = 102.0
+margin_bottom = 27.0
+theme = ExtResource( 3 )
+text = "Next Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" parent="VBoxContainer" instance=ExtResource( 5 )]
+pause_mode = 2
+margin_left = 0.0
+margin_top = 31.0
+margin_right = 102.0
+margin_bottom = 58.0
+rect_scale = Vector2( 1, 1 )
+script = ExtResource( 2 )
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 62.0
+margin_right = 102.0
+margin_bottom = 89.0
+theme = ExtResource( 3 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -15.0
+[connection signal="button_down" from="VBoxContainer/NextLevel" to="." method="_on_NextLevel_button_down"]
+[connection signal="button_down" from="VBoxContainer/Quit" to="." method="_on_Quit_button_down"]

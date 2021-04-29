@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/qubodup-GhostMoan03.wav-4b5ea5ae9c29629e1d7e37dc3de162af.sample"
+
+[deps]
+
+source_file="res://musics/qubodup-GhostMoan03.wav"
+dest_files=[ "res://.import/qubodup-GhostMoan03.wav-4b5ea5ae9c29629e1d7e37dc3de162af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

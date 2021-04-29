@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/music_jewels.ogg-67f17d20a19edca4e63b52378bd76802.oggstr"
+
+[deps]
+
+source_file="res://musics/music_jewels.ogg"
+dest_files=[ "res://.import/music_jewels.ogg-67f17d20a19edca4e63b52378bd76802.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

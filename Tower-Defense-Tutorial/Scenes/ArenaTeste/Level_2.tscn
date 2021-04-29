@@ -1,0 +1,291 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scenes/ElementosBase/BuildTowerButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/ArenaTeste/Level_2.gd" type="Script" id=2]
+[ext_resource path="res://teste_tileset2.tres" type="TileSet" id=3]
+[ext_resource path="res://musics/qubodup-GhostMoan03.wav" type="AudioStream" id=4]
+[ext_resource path="res://musics/DST-TowerDefenseTheme_1.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Scenes/ElementosBase/DeathSFX.tscn" type="PackedScene" id=6]
+[ext_resource path="res://musics/Construction.wav" type="AudioStream" id=7]
+[ext_resource path="res://images/start-assets/new_theme.tres" type="Theme" id=8]
+[ext_resource path="res://Scenes/ArenaTeste/PauseMenu.gd" type="Script" id=9]
+[ext_resource path="res://telas/LoseScene.tscn" type="PackedScene" id=10]
+[ext_resource path="res://telas/WinScene.tscn" type="PackedScene" id=11]
+[ext_resource path="res://musics/arrowHit01.wav" type="AudioStream" id=12]
+[ext_resource path="res://musics/explodemini.wav" type="AudioStream" id=13]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 37.9224, 17.0264, 0, 0, 0, 0, 39.2535, 129.66, 0, 0, 0, 0, 38.7781, 163.361, 0, 0, 0, 0, 134.237, 163.361, 0, 0, 0, 0, 134.237, 62.4076, 0, 0, 0, 0, 245.605, 62.4076, 0, 0, 0, 0, 245.605, 197.012, 0, 0, 0, 0, 118.327, 197.012, 0, 0, 0, 0, 118.327, 247.489, 0, 0, 0, 0, 392.15, 247.253, 0, 0, 0, 0, 392.15, 247.253, 0, 0, 0, 0, 391.486, 144.145, 0, 0, 0, 0, 509.119, 144.145 )
+}
+
+[node name="Game" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 16, 1, 1, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 65536, 18, 0, 65537, 33, 0, 65538, 1610612758, 0, 65539, 17, 0, 65540, 33, 0, 65541, 17, 0, 65542, 17, 0, 65543, 17, 0, 65544, 17, 0, 65545, 34, 0, 65546, 34, 0, 65547, 17, 0, 65548, 17, 0, 65549, 17, 0, 65550, 17, 0, 65551, 17, 0, 65552, 17, 0, 65553, 2, 0, 65554, 2, 0, 65555, 17, 0, 65556, 17, 0, 65557, 17, 0, 65558, 32, 0, 65559, 32, 0, 65560, 32, 0, 65561, 32, 0, 65562, 32, 0, 65563, 2, 0, 65564, 32, 0, 65565, 32, 0, 65566, 32, 0, 65567, 32, 0, 131072, 33, 0, 131073, 2, 0, 131074, 1610612758, 0, 131075, 33, 0, 131076, 33, 0, 131077, 17, 0, 131078, 17, 0, 131079, 17, 0, 131080, 17, 0, 131081, 17, 0, 131082, 34, 0, 131083, 23, 0, 131084, 23, 0, 131085, 34, 0, 131086, 2, 0, 131087, 34, 0, 131088, 18, 0, 131089, 34, 0, 131090, 34, 0, 131091, 18, 0, 131092, 18, 0, 131093, 1, 0, 131094, 17, 0, 131095, 2, 0, 131096, 2, 0, 131097, 2, 0, 131098, 2, 0, 131099, 2, 0, 131100, 2, 0, 131101, 2, 0, 131102, 32, 0, 131103, 32, 0, 196608, 33, 0, 196609, 2, 0, 196610, 1610612758, 0, 196611, 18, 0, 196612, 18, 0, 196613, 18, 0, 196614, 2, 0, 196615, 2, 0, 196616, 27, 0, 196617, -1610612714, 0, 196618, -1610612714, 0, 196619, -1610612714, 0, 196620, -1610612714, 0, 196621, -1610612714, 0, 196622, -1610612714, 0, 196623, -1610612709, 0, 196624, 18, 0, 196625, 34, 0, 196626, 18, 0, 196627, 18, 0, 196628, 18, 0, 196629, 18, 0, 196630, 18, 0, 196631, 17, 0, 196632, 2, 0, 196633, 34, 0, 196634, 34, 0, 196635, 34, 0, 196636, 34, 0, 196637, 2, 0, 196638, 32, 0, 196639, 32, 0, 262144, 2, 0, 262145, 2, 0, 262146, 1610612758, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 34, 0, 262151, 23, 0, 262152, 22, 0, 262153, 0, 0, 262154, 23, 0, 262155, 23, 0, 262156, 34, 0, 262157, 2, 0, 262158, 0, 0, 262159, 22, 0, 262160, 2, 0, 262161, 18, 0, 262162, 2, 0, 262163, 18, 0, 262164, 1, 0, 262165, 18, 0, 262166, 18, 0, 262167, 18, 0, 262168, 18, 0, 262169, 17, 0, 262170, 34, 0, 262171, 34, 0, 262172, 34, 0, 262173, 23, 0, 262174, 2, 0, 262175, 32, 0, 327680, 6, 0, 327681, 6, 0, 327682, 1610612758, 0, 327683, 34, 0, 327684, 34, 0, 327685, 2, 0, 327686, 2, 0, 327687, 2, 0, 327688, 22, 0, 327689, 2, 0, 327690, 2, 0, 327691, 34, 0, 327692, 34, 0, 327693, 34, 0, 327694, 2, 0, 327695, 22, 0, 327696, 2, 0, 327697, 2, 0, 327698, 0, 0, 327699, 6, 0, 327700, 18, 0, 327701, 1, 0, 327702, 2, 0, 327703, 34, 0, 327704, 2, 0, 327705, 18, 0, 327706, 18, 0, 327707, 18, 0, 327708, 34, 0, 327709, 2, 0, 327710, 2, 0, 327711, 32, 0, 393216, 10, 0, 393217, 23, 0, 393218, 1610612758, 0, 393219, 2, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 22, 0, 393225, 2, 0, 393226, 34, 0, 393227, 34, 0, 393228, 34, 0, 393229, 34, 0, 393230, 2, 0, 393231, 22, 0, 393232, 2, 0, 393233, 2, 0, 393234, 2, 0, 393235, 2, 0, 393236, 2, 0, 393237, 18, 0, 393238, 23, 0, 393239, 23, 0, 393240, 23, 0, 393241, 2, 0, 393242, 1, 0, 393243, 17, 0, 393244, 18, 0, 393245, 18, 0, 393246, 18, 0, 393247, 32, 0, 458752, 23, 0, 458753, 10, 0, 458754, 1610612758, 0, 458755, 34, 0, 458756, 23, 0, 458757, 2, 0, 458758, 34, 0, 458759, 2, 0, 458760, 22, 0, 458761, 2, 0, 458762, 34, 0, 458763, 34, 0, 458764, 34, 0, 458765, 34, 0, 458766, 34, 0, 458767, 22, 0, 458768, 2, 0, 458769, 2, 0, 458770, 2, 0, 458771, 2, 0, 458772, 2, 0, 458773, 2, 0, 458774, 2, 0, 458775, 2, 0, 458776, 0, 0, 458777, 2, 0, 458778, 2, 0, 458779, 23, 0, 458780, 23, 0, 458781, 17, 0, 458782, 0, 0, 458783, 18, 0, 524288, 34, 0, 524289, 23, 0, 524290, 1610612758, 0, 524291, 0, 0, 524292, 23, 0, 524293, 23, 0, 524294, 23, 0, 524295, 23, 0, 524296, 22, 0, 524297, 2, 0, 524298, 23, 0, 524299, 34, 0, 524300, 34, 0, 524301, 34, 0, 524302, 23, 0, 524303, 22, 0, 524304, 23, 0, 524305, 23, 0, 524306, 2, 0, 524307, 34, 0, 524308, 34, 0, 524309, 2, 0, 524310, 34, 0, 524311, 23, 0, 524312, 27, 0, 524313, -1610612714, 0, 524314, -1610612714, 0, 524315, -1610612714, 0, 524316, -1610612714, 0, 524317, -1610612714, 0, 524318, -1610612714, 0, 524319, -1610612714, 0, 589824, 10, 0, 589825, 18, 0, 589826, -1073741797, 0, 589827, -1610612714, 0, 589828, -1610612714, 0, 589829, -1610612714, 0, 589830, -1610612714, 0, 589831, -1610612714, 0, 589832, 1610612763, 0, 589833, 23, 0, 589834, 23, 0, 589835, 2, 0, 589836, 34, 0, 589837, 0, 0, 589838, 23, 0, 589839, 22, 0, 589840, 2, 0, 589841, 34, 0, 589842, 34, 0, 589843, 10, 0, 589844, 34, 0, 589845, 34, 0, 589846, 34, 0, 589847, 10, 0, 589848, 22, 0, 589849, 10, 0, 589850, 2, 0, 589851, 2, 0, 589852, 10, 0, 589853, 10, 0, 589854, 10, 0, 589855, 23, 0, 655360, 34, 0, 655361, 10, 0, 655362, 10, 0, 655363, 32, 0, 655364, 32, 0, 655365, 17, 0, 655366, 0, 0, 655367, 2, 0, 655368, 23, 0, 655369, 23, 0, 655370, 23, 0, 655371, 23, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 22, 0, 655376, 1, 0, 655377, 17, 0, 655378, 17, 0, 655379, 34, 0, 655380, 34, 0, 655381, 34, 0, 655382, 10, 0, 655383, 10, 0, 655384, 22, 0, 655385, 1, 0, 655386, 23, 0, 655387, 23, 0, 655388, 23, 0, 655389, 10, 0, 655390, 23, 0, 655391, 23, 0, 720896, 34, 0, 720897, 32, 0, 720898, 33, 0, 720899, 1, 0, 720900, 17, 0, 720901, 32, 0, 720902, 1, 0, 720903, 27, 0, 720904, -1610612714, 0, 720905, -1610612714, 0, 720906, -1610612714, 0, 720907, -1610612714, 0, 720908, -1610612714, 0, 720909, -1610612714, 0, 720910, -1610612714, 0, 720911, 1610612763, 0, 720912, 2, 0, 720913, 34, 0, 720914, 34, 0, 720915, 34, 0, 720916, 34, 0, 720917, 34, 0, 720918, 34, 0, 720919, 17, 0, 720920, 22, 0, 720921, 0, 0, 720922, 0, 0, 720923, 0, 0, 720924, 17, 0, 720925, 33, 0, 720926, 10, 0, 720927, 10, 0, 786432, 34, 0, 786433, 32, 0, 786434, 33, 0, 786435, 34, 0, 786436, 23, 0, 786437, 17, 0, 786438, 32, 0, 786439, 22, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 23, 0, 786446, 23, 0, 786447, 23, 0, 786448, 34, 0, 786449, 34, 0, 786450, 34, 0, 786451, 34, 0, 786452, 34, 0, 786453, 34, 0, 786454, 32, 0, 786455, 17, 0, 786456, 22, 0, 786457, 0, 0, 786458, 0, 0, 786459, 17, 0, 786460, 17, 0, 786461, 33, 0, 786462, 18, 0, 786463, 10, 0, 851968, 33, 0, 851969, 33, 0, 851970, 34, 0, 851971, 33, 0, 851972, 34, 0, 851973, 34, 0, 851974, 33, 0, 851975, 22, 0, 851976, 0, 0, 851977, 0, 0, 851978, 23, 0, 851979, 23, 0, 851980, 23, 0, 851981, 0, 0, 851982, 1, 0, 851983, 1, 0, 851984, 23, 0, 851985, 23, 0, 851986, 1, 0, 851987, 1, 0, 851988, 33, 0, 851989, 33, 0, 851990, 33, 0, 851991, 0, 0, 851992, 22, 0, 851993, 0, 0, 851994, 0, 0, 851995, 33, 0, 851996, 33, 0, 851997, 10, 0, 851998, 33, 0, 851999, 33, 0, 917504, 32, 0, 917505, 33, 0, 917506, 33, 0, 917507, 33, 0, 917508, 33, 0, 917509, 33, 0, 917510, 33, 0, 917511, -1073741797, 0, 917512, -1610612714, 0, 917513, -1610612714, 0, 917514, -1610612714, 0, 917515, -1610612714, 0, 917516, -1610612714, 0, 917517, -1610612714, 0, 917518, -1610612714, 0, 917519, -1610612714, 0, 917520, -1610612714, 0, 917521, -1610612714, 0, 917522, -1610612714, 0, 917523, -1610612714, 0, 917524, -1610612714, 0, 917525, -1610612714, 0, 917526, -1610612714, 0, 917527, -1610612714, 0, 917528, 1610612763, 0, 917529, 0, 0, 917530, 34, 0, 917531, 10, 0, 917532, 10, 0, 917533, 34, 0, 917534, 10, 0, 917535, 10, 0, 983040, 32, 0, 983041, 32, 0, 983042, 32, 0, 983043, 32, 0, 983044, 33, 0, 983045, 18, 0, 983046, 34, 0, 983047, 11, 0, 983048, 34, 0, 983049, 34, 0, 983050, 11, 0, 983051, 11, 0, 983052, 11, 0, 983053, 11, 0, 983054, 34, 0, 983055, 11, 0, 983056, 11, 0, 983057, 34, 0, 983058, 10, 0, 983059, 10, 0, 983060, 33, 0, 983061, 1, 0, 983062, 1, 0, 983063, 33, 0, 983064, 33, 0, 983065, 34, 0, 983066, 10, 0, 983067, 10, 0, 983068, 33, 0, 983069, 16, 0, 983070, 16, 0, 983071, 16, 0, 1048576, 32, 0, 1048577, 32, 0, 1048578, 32, 0, 1048579, 32, 0, 1048580, 34, 0, 1048581, 33, 0, 1048582, 18, 0, 1048583, 33, 0, 1048584, 11, 0, 1048585, 10, 0, 1048586, 10, 0, 1048587, 34, 0, 1048588, 10, 0, 1048589, 10, 0, 1048590, 10, 0, 1048591, 10, 0, 1048592, 10, 0, 1048593, 10, 0, 1048594, 10, 0, 1048595, 10, 0, 1048596, 10, 0, 1048597, 10, 0, 1048598, 33, 0, 1048599, 33, 0, 1048600, 10, 0, 1048601, 16, 0, 1048602, 16, 0, 1048603, 16, 0, 1048604, 16, 0, 1048605, 16, 0, 1048606, 16, 0, 1048607, 16, 0, 1114112, 32, 0, 1114113, 32, 0, 1114114, 32, 0, 1114115, 32, 0, 1114116, 32, 0, 1114117, 33, 0, 1114118, 33, 0, 1114119, 33, 0, 1114120, 33, 0, 1114121, 32, 0, 1114122, 32, 0, 1114123, 32, 0, 1114124, 32, 0, 1114125, 32, 0, 1114126, 32, 0, 1114127, 18, 0, 1114128, 18, 0, 1114129, 32, 0, 1114130, 32, 0, 1114131, 32, 0, 1114132, 32, 0, 1114133, 18, 0, 1114134, 18, 0, 1114135, 16, 0, 1114136, 16, 0, 1114137, 16, 0, 1114138, 16, 0, 1114139, 16, 0, 1114140, 16, 0, 1114141, 16, 0, 1114142, 16, 0, 1114143, 16, 0, 1179648, 32, 0, 1179649, 32, 0, 1179650, 32, 0, 1179651, 32, 0, 1179652, 32, 0, 1179653, 32, 0, 1179654, 32, 0, 1179655, 32, 0, 1179656, 13, 0, 1179657, 13, 0, 1179658, 18, 0, 1179659, 32, 0, 1179660, 32, 0, 1179661, 32, 0, 1179662, 32, 0, 1179663, 32, 0, 1179664, 32, 0, 1179665, 32, 0, 1179666, 18, 0, 1179667, 18, 0, 1179668, 18, 0, 1179669, 18, 0, 1179670, 18, 0, 1179671, 16, 0, 1179672, 16, 0, 1179673, 16, 0, 1179674, 16, 0, 1179675, 16, 0, 1179676, 16, 0, 1179677, 16, 0, 1179678, 16, 0, 1179679, 16, 0 )
+
+[node name="Caminho" type="Path2D" parent="."]
+position = Vector2( 0.458746, 1.44412 )
+scale = Vector2( 1.00425, 0.945064 )
+curve = SubResource( 1 )
+
+[node name="Start_position" type="Position2D" parent="."]
+
+[node name="End_position" type="Position2D" parent="."]
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 1.0
+margin_right = 511.0
+margin_bottom = 16.0
+color = Color( 0.0431373, 0.0352941, 0.0352941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CashLabel" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LivesLabel" type="Label" parent="."]
+margin_left = 113.674
+margin_top = 1.68369
+margin_right = 170.674
+margin_bottom = 15.6837
+text = "Lives: 10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaveLabel" type="Label" parent="."]
+margin_left = 243.593
+margin_top = 0.908184
+margin_right = 283.593
+margin_bottom = 14.9082
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelLabel" type="Label" parent="."]
+margin_left = 349.031
+margin_top = 1.68369
+margin_right = 399.031
+margin_bottom = 15.6837
+text = "Level: 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuildTowerButton" parent="." instance=ExtResource( 1 )]
+margin_left = 48.0
+margin_top = 128.0
+margin_right = 64.0
+margin_bottom = 144.0
+
+[node name="BuildTowerButton13" parent="." instance=ExtResource( 1 )]
+margin_left = 208.0
+margin_top = 144.0
+margin_right = 224.0
+margin_bottom = 160.0
+
+[node name="BuildTowerButton11" parent="." instance=ExtResource( 1 )]
+margin_left = 480.0
+margin_top = 112.0
+margin_right = 496.0
+margin_bottom = 128.0
+
+[node name="BuildTowerButton12" parent="." instance=ExtResource( 1 )]
+margin_left = 368.0
+margin_top = 208.0
+margin_right = 384.0
+margin_bottom = 224.0
+
+[node name="BuildTowerButton2" parent="." instance=ExtResource( 1 )]
+margin_left = 384.0
+margin_top = 112.0
+margin_right = 400.0
+margin_bottom = 128.0
+
+[node name="BuildTowerButton3" parent="." instance=ExtResource( 1 )]
+margin_left = 288.0
+margin_top = 80.0
+margin_right = 304.0
+margin_bottom = 96.0
+
+[node name="BuildTowerButton4" parent="." instance=ExtResource( 1 )]
+margin_left = 96.0
+margin_top = 160.0
+margin_right = 112.0
+margin_bottom = 176.0
+
+[node name="BuildTowerButton5" parent="." instance=ExtResource( 1 )]
+margin_left = 400.0
+margin_top = 176.0
+margin_right = 416.0
+margin_bottom = 192.0
+
+[node name="BuildTowerButton6" parent="." instance=ExtResource( 1 )]
+margin_left = 192.0
+margin_top = 192.0
+margin_right = 208.0
+margin_bottom = 208.0
+
+[node name="BuildTowerButton7" parent="." instance=ExtResource( 1 )]
+margin_left = 224.0
+margin_top = 64.0
+margin_right = 240.0
+margin_bottom = 80.0
+
+[node name="BuildTowerButton8" parent="." instance=ExtResource( 1 )]
+margin_left = 144.403
+margin_top = 208.908
+margin_right = 160.403
+margin_bottom = 224.908
+
+[node name="BuildTowerButton9" parent="." instance=ExtResource( 1 )]
+margin_left = 144.0
+margin_top = 64.0
+margin_right = 160.0
+margin_bottom = 80.0
+
+[node name="BuildTowerButton10" parent="." instance=ExtResource( 1 )]
+margin_left = 129.15
+margin_top = 191.826
+margin_right = 145.15
+margin_bottom = 207.826
+
+[node name="MobSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -3.0
+
+[node name="MusicLevel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = true
+
+[node name="DeathSFX" parent="." instance=ExtResource( 6 )]
+
+[node name="ConstructSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.0
+
+[node name="ArrowSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+
+[node name="BombSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+volume_db = -5.0
+
+[node name="Pause" type="Button" parent="."]
+margin_left = 464.338
+margin_top = -1.66742
+margin_right = 514.338
+margin_bottom = 18.3326
+rect_scale = Vector2( 0.95, 0.95 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="PauseMenu" type="Control" parent="CanvasLayer"]
+pause_mode = 2
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 2, 2 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseMenu"]
+margin_left = -0.550613
+margin_top = -12.8502
+margin_right = 540.449
+margin_bottom = 316.15
+color = Color( 0.0901961, 0.192157, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu"]
+margin_left = 142.339
+margin_top = 4.49492
+margin_right = 194.339
+margin_bottom = 25.4949
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 8 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu"]
+margin_left = 163.0
+margin_top = 99.0
+margin_right = 253.0
+margin_bottom = 188.0
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+margin_right = 90.0
+margin_bottom = 27.0
+theme = ExtResource( 8 )
+text = "Continue"
+
+[node name="Retry" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+margin_top = 31.0
+margin_right = 90.0
+margin_bottom = 58.0
+theme = ExtResource( 8 )
+text = "Retry"
+
+[node name="Quit" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+margin_top = 62.0
+margin_right = 90.0
+margin_bottom = 89.0
+theme = ExtResource( 8 )
+text = "Quit"
+
+[node name="WinScene" parent="CanvasLayer" instance=ExtResource( 11 )]
+visible = false
+anchor_right = 0.978
+margin_top = -5.0
+margin_right = 30.528
+margin_bottom = 11.0
+rect_scale = Vector2( 1.01, 1.01 )
+
+[node name="LoseScene" parent="CanvasLayer" instance=ExtResource( 10 )]
+visible = false
+margin_left = -8.32834
+margin_top = -17.5256
+margin_right = -8.32837
+margin_bottom = -17.5256
+rect_scale = Vector2( 0.53, 0.53 )
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
+[connection signal="button_down" from="Pause" to="." method="_on_Pause_button_down"]
+[connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Continue" to="." method="_on_Continue_button_down"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/Retry" to="." method="_on_Retry_pressed"]
+[connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Quit" to="." method="_on_Quit_button_down"]
