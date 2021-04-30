@@ -86,6 +86,7 @@ func _input(event):
 				instance = tower_button.instance()
 				instance.rect_position = tower.position - Vector2(8,8)
 				self.add_child(instance)
+				
 				towers.erase(tower)
 				tower.queue_free()
 				break
@@ -103,6 +104,7 @@ func _on_Pause_button_down():
 func _on_Quit_button_down():
 	get_tree().quit()
 	
+
 func _on_Continue_button_down():
 	get_tree().paused = false
 	get_node("CanvasLayer").get_node("PauseMenu").visible = false
