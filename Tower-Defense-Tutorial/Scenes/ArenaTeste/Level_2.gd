@@ -10,7 +10,7 @@ var mob = load("res://Scenes/ElementosBase/Enemy_Desajeitado.tscn")
 var mob2 = load("res://Scenes/ElementosBase/Enemy_Desajeitado.tscn")
 var mob3 = load("res://Scenes/ElementosBase/Enemy_Desajeitado.tscn")
 var instance
-
+var mob_list : = {}
 var building = false
 
 var cash = 30
@@ -95,7 +95,6 @@ func lose_a_life():
 	lives = max(lives,0)
 	$LivesLabel.text = "lives: " + str(lives)
 
-
 func _on_Pause_button_down():
 	get_tree().paused = true
 	get_node("CanvasLayer").get_node("PauseMenu").visible = true
@@ -109,6 +108,7 @@ func _on_Continue_button_down():
 
 func _on_Retry_button_down():
 	get_tree().paused = false
+# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 
 func arrowSFX():

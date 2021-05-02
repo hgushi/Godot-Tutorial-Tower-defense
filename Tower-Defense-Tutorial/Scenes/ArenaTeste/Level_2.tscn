@@ -213,6 +213,7 @@ __meta__ = {
 layer = 128
 
 [node name="WinScene" parent="CanvasLayer" instance=ExtResource( 11 )]
+visible = false
 anchor_right = 1.017
 margin_left = -21.0
 margin_top = -23.0
@@ -221,6 +222,7 @@ margin_bottom = -15.0
 rect_scale = Vector2( 1.1, 1.1 )
 
 [node name="LoseScene" parent="CanvasLayer" instance=ExtResource( 10 )]
+visible = false
 margin_left = -16.9706
 margin_top = -29.6985
 margin_right = -16.9706
@@ -228,6 +230,7 @@ margin_bottom = -29.6985
 rect_scale = Vector2( 1.1, 1.1 )
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 8 )
