@@ -23,6 +23,15 @@ var towers = []
 var caminho = []
 onready var MobTimer = $MobTimer
 onready var WaveTimer = $WaveTimer
+onready var Caminho = $Caminho
+onready var CashLabel = $CashLabel
+onready var WaveLabel = $WaveLabel
+onready var ConstructSFX = $ConstructSFX
+onready var LivesLabel = $LivesLabe
+onready var MobSFX = $MobSFX
+onready var DeathSFX = $DeathSFX
+onready var ArrowSFX = $ArrowSFX
+onready var BombSFX = $BombSFX
 
 func _ready():
 	WaveTimer.start()
@@ -33,8 +42,8 @@ func _ready():
 		caminho.append(to_global(point))
 
 func _physics_process(_delta):
-	$CashLabel.text = "cash: " + str(cash)
-	$WaveLabel.text = "wave: " + str(wave) 
+	CashLabel.text = "cash: " + str(cash)
+	WaveLabel.text = "wave: " + str(wave) 
 	MobTimer.wait_time = rand_range(0.5, 3) #Coloquei só para testar deixar um pouco mais aleatório
 	if lives <= 0:
 		get_node("CanvasLayer").get_node("LoseScene").get_node("LoseMusic").play()
@@ -68,7 +77,7 @@ func _on_WaveTimer_timeout():
 func _on_MobTimer_timeout():
 	instance = mob.instance()
 	instance.connect("lose_a_life",self,"lose_a_life")
-	$Caminho.add_child(instance)
+	Caminho.add_child(instance)
 	mobs_left -=1
 	if mobs_left <= 0:
 		MobTimer.stop()
@@ -76,7 +85,7 @@ func _on_MobTimer_timeout():
 			wave += 1
 		if wave < len(wave_mobs):
 			WaveTimer.start()
-			$MobSFX.play()
+			MobSFX.play()
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
@@ -93,7 +102,7 @@ func _input(event):
 func lose_a_life():
 	lives -= 10
 	lives = max(lives,0)
-	$LivesLabel.text = "lives: " + str(lives)
+	LivesLabel.text = "lives: " + str(lives)
 
 func _on_Pause_button_down():
 	get_tree().paused = true
@@ -112,10 +121,10 @@ func _on_Retry_button_down():
 	get_tree().reload_current_scene()
 
 func arrowSFX():
-	$ArrowSFX.play()
+	ArrowSFX.play()
 	
 func bombSFX():
-	$BombSFX.play()
+	BombSFX.play()
 	
 func deathSFX():
-	$DeathSFX.play()
+	DeathSFX.play()
