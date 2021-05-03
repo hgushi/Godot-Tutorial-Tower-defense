@@ -1,16 +1,16 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/ElementosBase/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/Animations/Desajeitado_forte/Desajeitado_forte_1.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/Animations/Desajeitado_forte/Desajeitado_forte_3.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/Animations/Desajeitado_forte/Desajeitado_forte_6.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/Animations/Desajeitado_forte/Desajeitado_forte_4.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/Animations/Desajeitado_forte/Desajeitado_forte_2.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/Animations/Desajeitado_forte/Desajeitado_forte_5.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Animations/Fastaminha_base/Fantasminha_base_6.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Animations/Fastaminha_base/Fantasminha_base_1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Animations/Fastaminha_base/Fantasminha_base_5.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Animations/Fastaminha_base/Fantasminha_base_3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Animations/Fastaminha_base/Fantasminha_base_4.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Animations/Fastaminha_base/Fantasminha_base_2.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 6.0
@@ -33,7 +33,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 5
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

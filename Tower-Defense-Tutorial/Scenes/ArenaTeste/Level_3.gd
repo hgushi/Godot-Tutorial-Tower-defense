@@ -3,41 +3,34 @@ extends Node2D
 var t_basica = load("res://Scenes/TorreBasica.tscn")
 var t_area = load("res://Scenes/TorreÁrea.tscn")
 var t_mina = load("res://Scenes/TorreMina.tscn")
-
 var tower_button = load("res://Scenes/ElementosBase/BuildTowerButton.tscn")
-
-var mob = load("res://Scenes/ElementosBase/Enemy_Desajeitado.tscn")
-var mob2 = load("res://Scenes/ElementosBase/Enemy_Desajeitado.tscn")
+var mob = load("res://Scenes/ElementosBase/Enemy.tscn")
+var mob2 = load("res://Scenes/ElementosBase/Enemy_2.tscn")
 var mob3 = load("res://Scenes/ElementosBase/Enemy_Desajeitado.tscn")
 var instance
-
 var building = false
-
 var cash = 30
 var lives = 10
 var wave = 0
 var mobs_left = 0
-var wave_mobs = [1, 3, 5, 10, 15]
-
+var wave_mobs = [1, 3, 5, 10, 15, 20]
 var towers = []
 var caminho = []
+var wave_set : = [mob,mob2,mob3,mob,mob2,mob3,mob3,mob,mob2,mob,mob2,mob3,mob,mob3,mob,mob2,mob2,mob,mob3,mob2,mob3,mob,mob,mob2,mob3,mob,mob,mob2,mob,mob3,mob,mob2,mob,mob,mob3,mob,mob3,mob2,mob2,mob2,mob,mob3,mob3,mob,mob2,mob3,mob3,mob2,mob,mob3,mob2,mob3,mob,mob2,]
+var enemy_number: = 0
 onready var MobTimer = $MobTimer
 onready var WaveTimer = $WaveTimer
 onready var Caminho = $Caminho
 onready var CashLabel = $CashLabel
 onready var WaveLabel = $WaveLabel
 onready var ConstructSFX = $ConstructSFX
-onready var LivesLabel = $LivesLabe
+onready var LivesLabel = $LivesLabel
 onready var MobSFX = $MobSFX
 onready var DeathSFX = $DeathSFX
 onready var ArrowSFX = $ArrowSFX
 onready var BombSFX = $BombSFX
 
 func _ready():
-	WaveTimer.start()
-	get_node("CanvasLayer").get_node("PauseMenu").visible = false
-	get_node("CanvasLayer").get_node("LoseScene").visible = false
-	get_node("CanvasLayer").get_node("WinScene").visible = false
 	for point in Caminho.get_curve().get_baked_points():
 		caminho.append(to_global(point))
 
@@ -49,7 +42,7 @@ func _physics_process(_delta):
 		get_node("CanvasLayer").get_node("LoseScene").get_node("LoseMusic").play()
 		get_node("CanvasLayer").get_node("LoseScene").visible = true
 		get_tree().paused = true
-	if wave >= 5 and get_node("Caminho").get_children().size() == 0 :
+	if wave >= len(wave_mobs) and get_node("Caminho").get_children().size() == 0 :
 		get_node("CanvasLayer").get_node("WinScene").visible = true 
 		get_node("CanvasLayer").get_node("WinScene").get_node("WinMusic").play()
 		get_tree().paused = true
@@ -75,14 +68,14 @@ func _on_WaveTimer_timeout():
 	MobTimer.start()
 
 func _on_MobTimer_timeout():
-	instance = mob.instance()
+	instance = wave_set[enemy_number].instance()
 	instance.connect("lose_a_life",self,"lose_a_life")
 	Caminho.add_child(instance)
-	mobs_left -=1
+	mobs_left -= 1
+	enemy_number += 1
 	if mobs_left <= 0:
+		wave += 1
 		MobTimer.stop()
-		if wave < 5:
-			wave += 1
 		if wave < len(wave_mobs):
 			WaveTimer.start()
 			MobSFX.play()
@@ -104,7 +97,6 @@ func lose_a_life():
 	lives -= 10
 	lives = max(lives,0)
 	LivesLabel.text = "lives: " + str(lives)
-
 
 func _on_Pause_button_down():
 	get_tree().paused = true

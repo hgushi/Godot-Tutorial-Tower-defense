@@ -1,5 +1,5 @@
 extends Control
-var scene : = ""
+var scene : = "res://Scenes/ArenaTeste/Level_3.tscn"
 func _on_NextLevel_button_down():
 	get_tree().paused = false
 	get_tree().change_scene(scene)

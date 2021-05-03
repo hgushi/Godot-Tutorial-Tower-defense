@@ -10,8 +10,8 @@
 [ext_resource path="res://musics/DST-TowerDefenseTheme_1.ogg" type="AudioStream" id=8]
 [ext_resource path="res://musics/qubodup-GhostMoan03.wav" type="AudioStream" id=9]
 [ext_resource path="res://Scenes/ElementosBase/DeathSFX.tscn" type="PackedScene" id=10]
-[ext_resource path="res://telas/WinScene.tscn" type="PackedScene" id=11]
-[ext_resource path="res://telas/LoseScene.tscn" type="PackedScene" id=12]
+[ext_resource path="res://telas/WinScene2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://telas/LoseScene2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/ElementosBase/BuildTowerButton.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Curve2D" id=1]
@@ -38,6 +38,9 @@ curve = SubResource( 1 )
 [node name="MobTimer" type="Timer" parent="."]
 
 [node name="WaveTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -0.762146
@@ -60,10 +63,10 @@ __meta__ = {
 }
 
 [node name="LivesLabel" type="Label" parent="."]
-margin_left = 92.9924
-margin_top = -2.22726
-margin_right = 168.992
-margin_bottom = 29.7727
+margin_left = 105.706
+margin_top = -1.69753
+margin_right = 181.706
+margin_bottom = 30.3024
 theme = ExtResource( 4 )
 text = "Lives : 10"
 __meta__ = {
@@ -71,20 +74,20 @@ __meta__ = {
 }
 
 [node name="WaveLabel" type="Label" parent="."]
-margin_left = 206.961
-margin_top = -1.94759
-margin_right = 275.961
-margin_bottom = 30.0524
+margin_left = 231.329
+margin_top = -2.47732
+margin_right = 300.329
+margin_bottom = 29.5227
 theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LevelLabel" type="Label" parent="."]
-margin_left = 327.243
-margin_top = -2.6727
-margin_right = 397.243
-margin_bottom = 29.3273
+margin_left = 355.319
+margin_top = -3.20243
+margin_right = 425.319
+margin_bottom = 28.7976
 theme = ExtResource( 4 )
 text = "Level: 2"
 __meta__ = {
@@ -110,6 +113,7 @@ volume_db = -3.0
 [node name="MusicLevel" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -10.0
+autoplay = true
 
 [node name="DeathSFX" parent="." instance=ExtResource( 10 )]
 
@@ -129,20 +133,18 @@ volume_db = -5.0
 
 [node name="WinScene" parent="CanvasLayer" instance=ExtResource( 11 )]
 visible = false
-anchor_right = 1.005
-margin_left = -2.84204
-margin_top = -3.58786
-margin_right = 21.038
-margin_bottom = 0.412109
-rect_scale = Vector2( 1.01, 1.01 )
+margin_left = -14.7747
+margin_top = -7.63631
+margin_right = -14.7748
+margin_bottom = -7.63629
+rect_scale = Vector2( 1.03, 1.03 )
 
 [node name="LoseScene" parent="CanvasLayer" instance=ExtResource( 12 )]
 visible = false
-margin_left = -18.3849
-margin_top = -15.5564
-margin_right = 5.61511
-margin_bottom = 11.4437
-rect_scale = Vector2( 1.05, 1.05 )
+margin_left = 1.0
+margin_top = -8.0
+margin_right = 1.0
+margin_bottom = 10.0
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer"]
 visible = false

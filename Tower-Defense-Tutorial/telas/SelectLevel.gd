@@ -1,6 +1,6 @@
 extends Control
 var scene1 : = "res://Scenes/ArenaTeste/Level_2.tscn"
-var scene2: = ""
+var scene2: = "res://Scenes/ArenaTeste/Level_3.tscn"
 var scene3: = ""
 var level: int = 0
 func load_game():
