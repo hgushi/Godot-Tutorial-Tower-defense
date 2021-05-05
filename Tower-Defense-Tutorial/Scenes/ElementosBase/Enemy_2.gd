@@ -1,9 +1,8 @@
 extends PathFollow2D
 
 # Declare member variables here. Examples:
-var speed = 10
-var hp = 5
-signal lose_a_life
+var speed = 15
+var hp = 8
 signal arrowSFX
 signal bombSFX
 signal deathSFX
@@ -13,14 +12,12 @@ func _ready():
 	connect("deathSFX",self.get_parent().get_parent(),"deathSFX")
 	connect("arrowSFX",self.get_parent().get_parent(),"arrowSFX")
 	
+
 func _physics_process(delta):
 	offset += speed * delta
 	if unit_offset >= 1:
-		reached_end()
-
-func reached_end():
-	emit_signal("lose_a_life")
-	queue_free()
+		get_parent().get_parent().lose_a_life(1)
+		queue_free()
 
 func _on_Area2D_area_entered(projetil):
 	if projetil.is_in_group("shot"):

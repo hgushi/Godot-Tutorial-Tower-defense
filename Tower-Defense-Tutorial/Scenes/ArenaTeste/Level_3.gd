@@ -35,8 +35,8 @@ func _ready():
 		caminho.append(to_global(point))
 
 func _physics_process(_delta):
-	CashLabel.text = "cash: " + str(cash)
-	WaveLabel.text = "wave: " + str(wave) 
+	CashLabel.text = "Cash: " + str(cash)
+	WaveLabel.text = "Wave: " + str(wave) 
 	MobTimer.wait_time = rand_range(0.5, 3) #Coloquei só para testar deixar um pouco mais aleatório
 	if lives <= 0:
 		get_node("CanvasLayer").get_node("LoseScene").get_node("LoseMusic").play()
@@ -69,7 +69,6 @@ func _on_WaveTimer_timeout():
 
 func _on_MobTimer_timeout():
 	instance = wave_set[enemy_number].instance()
-	instance.connect("lose_a_life",self,"lose_a_life")
 	Caminho.add_child(instance)
 	mobs_left -= 1
 	enemy_number += 1
@@ -88,15 +87,14 @@ func _input(event):
 				instance = tower_button.instance()
 				instance.rect_position = tower.position - Vector2(8,8)
 				self.add_child(instance)
-				
 				towers.erase(tower)
 				tower.queue_free()
 				break
 
-func lose_a_life():
-	lives -= 10
+func lose_a_life(num):
+	lives -= num
 	lives = max(lives,0)
-	LivesLabel.text = "lives: " + str(lives)
+	LivesLabel.text = "Lives: " + str(lives)
 
 func _on_Pause_button_down():
 	get_tree().paused = true

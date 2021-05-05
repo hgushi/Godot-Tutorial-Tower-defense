@@ -4,10 +4,9 @@
 [ext_resource path="res://Scenes/ElementosBase/Enemy_Desajeitado.gd" type="Script" id=2]
 
 [node name="Enemy" instance=ExtResource( 1 )]
+rotate = true
+loop = true
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="Area2D" index="0"]
-frame = 1
-
-[node name="DeathSFX" parent="." index="2"]
-volume_db = 24.0
+frame = 5
