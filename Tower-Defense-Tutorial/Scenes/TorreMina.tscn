@@ -19,7 +19,7 @@ region_enabled = true
 region_rect = Rect2( 34, 323, 16, 16 )
 
 [node name="AtaqueTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
 [connection signal="area_exited" from="." to="." method="_on_Torre_area_exited"]
 [connection signal="timeout" from="AtaqueTimer" to="." method="_on_AtaqueTimer_timeout"]

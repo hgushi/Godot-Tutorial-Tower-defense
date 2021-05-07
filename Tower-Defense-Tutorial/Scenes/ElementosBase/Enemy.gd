@@ -1,8 +1,8 @@
 extends PathFollow2D
 
 # Declare member variables here. Examples:
-var speed = 10
-var hp = 10
+var speed = 1000
+var hp = 30
 signal arrowSFX
 signal bombSFX
 signal deathSFX

@@ -1,7 +1,7 @@
 extends Area2D
 
 export var velocidade = 50
-export var hit = 3
+export var hit = 2
 
 var alvo = position
 var direction = Vector2.ZERO

@@ -1,7 +1,7 @@
 extends Area2D
 
 export var velocidade = 150
-export var hit = 1
+export var hit = 3
 
 var direction = Vector2.DOWN
 var alvo = weakref(null)
