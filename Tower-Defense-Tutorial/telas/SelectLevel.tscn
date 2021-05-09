@@ -7,16 +7,17 @@
 [node name="SelectLevel" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -2.15332
-margin_top = -3.56763
-margin_right = 1024.84
-margin_bottom = 605.432
+margin_left = -0.15332
+margin_top = -2.56763
+margin_right = 1026.84
+margin_bottom = 606.432
 color = Color( 0.0431373, 0.239216, 0.913725, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,16 +30,27 @@ margin_right = 403.328
 margin_bottom = 28.0711
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 2 )
-text = "Select a level"
+text = "Select a Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="Button" parent="."]
+margin_left = 200.0
+margin_top = 200.0
+margin_right = 278.0
+margin_bottom = 227.0
+rect_scale = Vector2( 3, 3 )
+text = "Tutorial"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Level1" type="Button" parent="."]
-margin_left = 50.5005
-margin_top = 156.0
-margin_right = 133.5
-margin_bottom = 183.0
+margin_left = 600.0
+margin_top = 200.0
+margin_right = 683.0
+margin_bottom = 227.0
 rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 2 )
 text = "Level 1"
@@ -47,11 +59,10 @@ __meta__ = {
 }
 
 [node name="Level2" type="Button" parent="."]
-visible = false
-margin_left = 360.624
-margin_top = 162.635
-margin_right = 443.624
-margin_bottom = 189.635
+margin_left = 200.0
+margin_top = 400.0
+margin_right = 279.0
+margin_bottom = 427.0
 rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 2 )
 text = "Level 2"
@@ -60,11 +71,10 @@ __meta__ = {
 }
 
 [node name="Level3" type="Button" parent="."]
-visible = false
-margin_left = 702.864
-margin_top = 162.635
-margin_right = 785.864
-margin_bottom = 189.635
+margin_left = 600.0
+margin_top = 400.0
+margin_right = 683.0
+margin_bottom = 427.0
 rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 2 )
 text = "Level 3"
@@ -72,11 +82,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Blocked1" type="Button" parent="."]
+margin_left = 602.0
+margin_top = 201.0
+margin_right = 684.0
+margin_bottom = 228.0
+rect_scale = Vector2( 3, 3 )
+text = "Blocked"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Blocked2" type="Button" parent="."]
-margin_left = 362.039
-margin_top = 161.22
-margin_right = 444.039
-margin_bottom = 188.22
+margin_left = 200.0
+margin_top = 400.0
+margin_right = 282.0
+margin_bottom = 427.0
 rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 2 )
 text = "Blocked"
@@ -85,10 +106,10 @@ __meta__ = {
 }
 
 [node name="Blocked3" type="Button" parent="."]
-margin_left = 704.278
-margin_top = 165.463
-margin_right = 786.278
-margin_bottom = 192.463
+margin_left = 600.0
+margin_top = 400.0
+margin_right = 683.0
+margin_bottom = 427.0
 rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 2 )
 text = "Blocked"
@@ -100,6 +121,7 @@ __meta__ = {
 stream = ExtResource( 1 )
 volume_db = -10.0
 autoplay = true
+[connection signal="button_down" from="Tutorial" to="." method="_on_Tutorial_button_down"]
 [connection signal="button_down" from="Level1" to="." method="_on_Level1_button_down"]
 [connection signal="button_down" from="Level2" to="." method="_on_Level2_button_down"]
 [connection signal="button_down" from="Level3" to="." method="_on_Level3_button_down"]

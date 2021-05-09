@@ -5,16 +5,14 @@ var t_area = load("res://Scenes/TorreÁrea.tscn")
 var t_mina = load("res://Scenes/TorreMina.tscn")
 var tower_button = load("res://Scenes/ElementosBase/BuildTowerButton.tscn")
 var mob = load("res://Scenes/ElementosBase/Enemy.tscn")
-var mob2 = load("res://Scenes/ElementosBase/Enemy_2.tscn")
-var mob3 = load("res://Scenes/ElementosBase/EnemyDesajeitado.tscn")
 var instance
 var building = false
-var wave_set : = [mob,mob,mob,mob2,mob,mob,mob2,mob2,mob3,mob2,mob,mob,mob,mob2,mob3,mob,mob2,mob3,mob,mob,mob2,mob3,mob2,mob3,mob,mob2,mob,mob3,mob3,mob2,mob2,mob,mob3,mob3,]
-var cash = 30
-var lives = 10
+var wave_set : = [mob,]
+var cash = 10
+var lives = 1
 var wave = 0
 var mobs_left = 0
-var wave_mobs = [1, 3, 5, 10, 15]
+var wave_mobs = [1,]
 var enemy_number: = 0
 var towers = []
 var caminho = []
@@ -29,9 +27,10 @@ onready var MobSFX = $MobSFX
 onready var DeathSFX = $DeathSFX
 onready var ArrowSFX = $ArrowSFX
 onready var BombSFX = $BombSFX
+onready var TutorialTimer = $TutorialTimer
+onready var Tutorial = $Tutorial
 
 func _ready():
-	get_tree().paused = false
 	for point in Caminho.get_curve().get_baked_points():
 		caminho.append(to_global(point))
 
@@ -67,6 +66,7 @@ func add_cash(num):
 
 func _on_WaveTimer_timeout():
 	mobs_left = wave_mobs[wave]
+	TutorialTimer.start()
 	MobTimer.start()
 
 func _on_MobTimer_timeout():
@@ -78,7 +78,6 @@ func _on_MobTimer_timeout():
 		wave  += 1
 		MobTimer.stop()
 		if wave < len(wave_mobs):
-			WaveTimer.start()
 			MobSFX.play()
 
 func _input(event):
@@ -121,3 +120,7 @@ func bombSFX():
 	
 func deathSFX():
 	DeathSFX.play()
+
+func _on_TutorialTimer_timeout():
+	Tutorial.visible = true
+	get_tree().paused = true
