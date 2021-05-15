@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/Save2.gd" type="Script" id=1]
+[ext_resource path="res://UI/LoseScene.tscn" type="PackedScene" id=2]
+
+
+[node name="LoseScene2" instance=ExtResource( 2 )]
+
+[node name="ColorRect" parent="." index="0"]
+margin_left = -5.0
+margin_top = 2.0
+margin_right = 1039.0
+margin_bottom = 612.0
+
+[node name="Save" parent="VBoxContainer" index="1"]
+script = ExtResource( 1 )

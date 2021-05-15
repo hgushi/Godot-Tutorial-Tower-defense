@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Torre",
 "language": "GDScript",
-"path": "res://Scenes/ElementosBase/Torre.gd"
+"path": "res://Scenes/Base/Torre.gd"
 } ]
 _global_script_class_icons={
 "Torre": ""
@@ -21,12 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Tower Defense Tutorial"
-run/main_scene="res://telas/MainMenu.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://UI/MainMenu.tscn"
+config/icon="res://Assets/Sprites/icon.png"
 
 [autoload]
 
-DeathSFX="*res://Scenes/ElementosBase/DeathSFX.tscn"
+DeathSFX="*res://Scenes/Base/DeathSFX.tscn"
 
 [display]
 
@@ -46,4 +46,4 @@ ui_select={
 
 quality/driver/driver_name="GLES2"
 environment/default_clear_color=Color( 0.301961, 0.388235, 0.301961, 1 )
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://Assets/default_env.tres"
