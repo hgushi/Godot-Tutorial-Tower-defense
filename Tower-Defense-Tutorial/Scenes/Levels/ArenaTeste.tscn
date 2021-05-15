@@ -1,10 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Levels/AreaTeste.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Levels/BaseGame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/teste_tileset2.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/SFX/DST-TowerDefenseTheme_1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/Base/BuildTowerButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/SFX/qubodup-GhostMoan03.wav" type="AudioStream" id=6]
+
 
 
 

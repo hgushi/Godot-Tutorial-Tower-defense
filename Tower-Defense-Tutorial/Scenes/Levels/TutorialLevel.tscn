@@ -14,18 +14,6 @@
 [ext_resource path="res://UI/PauseMenu.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Levels/Tutorial.gd" type="Script" id=13]
 
-
-
-
-
-
-
-
-
-
-
-
-
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 72.4305, 9.88743, 0, 0, 0, 0, 71.8693, 136.726, 0, 0, 0, 0, 359.781, 137.287, 0, 0, 0, 0, 360.903, 231.574, 0, 0, 0, 0, 522.538, 232.135 )
@@ -140,7 +128,7 @@ __meta__ = {
 }
 
 [node name="TutorialTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 8.0
 one_shot = true
 
 [node name="Tutorial" type="ColorRect" parent="."]

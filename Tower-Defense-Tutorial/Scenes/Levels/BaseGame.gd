@@ -1,4 +1,5 @@
 extends Node2D
+class_name BaseGame
 
 var t_basica = load("res://Scenes/Towers/BasicTower.tscn")
 var t_area = load("res://Scenes/Towers/AreaTower.tscn")
@@ -7,32 +8,43 @@ var t_mina = load("res://Scenes/Towers/BombTower.tscn")
 var tower_button = load("res://Scenes/Base/BuildTowerButton.tscn")
 
 var mob = load("res://Scenes/Enemies/Enemy.tscn")
-var instance
+var mob2 = load("res://Scenes/Enemies/Enemy_2.tscn")
+var mob3 = load("res://Scenes/Enemies/EnemyDesajeitado.tscn")
 
-var building = false
-
-var cash = 30
-var health = 10
-var lives = 10
+var wave_mobs = [1, 3, 5, 10, 15]
+var wave_set = [mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,mob,]
 var wave = 0
 var mobs_left = 0
-var wave_mobs = [5, 10, 20, 30]
+var enemy_number = 0
+
+var cash = 30
+var lives = 10
 
 var towers = []
 var caminho = []
-onready var MobTimer = $MobTimer
-onready var WaveTimer = $WaveTimer
+
+var instance
+
 func _ready():
-	WaveTimer.start()
-	
+	get_tree().paused = false
+
 	for point in $Caminho.get_curve().get_baked_points():
 		caminho.append(to_global(point))
 
 func _physics_process(_delta):
-	$CashLabel.text = "cash: " + str(cash)
-	$HealthLabel.text = "health: " + str(health)
-	$WaveLabel.text = "wave: " + str(wave) 
-	MobTimer.wait_time = rand_range(0.5, 3) #Coloquei só para testar deixar um pouco mais aleatório
+	$CashLabel.text = "Cash: " + str(cash)
+	$WaveLabel.text = "Wave: " + str(wave) 
+	$LivesLabel.text = "Lives: " + str(lives)
+	$MobTimer.wait_time = rand_range(0.5, 3)
+	
+	if lives <= 0:
+		get_node("CanvasLayer/LoseScene/LoseMusic").play()
+		get_node("CanvasLayer/LoseScene").visible = true
+		get_tree().paused = true
+	if wave >= len(wave_mobs) and get_node("Caminho").get_children().size() == 0 and lives > 0 :
+		get_tree().paused = true
+		get_node("CanvasLayer/WinScene").visible = true 
+		get_node("CanvasLayer/WinScene/WinMusic").play()
 
 func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 	if cash >= TowerValue:
@@ -40,10 +52,11 @@ func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 		elif ID == 1: instance = t_mina.instance()
 		if ID == 2: instance = t_area.instance()
 		
+		$ConstructSFX.play()
+		
 		towers.append(instance)
 		instance.set_position(TowerPosition)
 		add_child(instance)
-		print(towers)
 		
 	if cash >= TowerValue:
 		cash -= TowerValue
@@ -53,18 +66,19 @@ func add_cash(num):
 
 func _on_WaveTimer_timeout():
 	mobs_left = wave_mobs[wave]
-	MobTimer.start()
+	$MobTimer.start()
 
 func _on_MobTimer_timeout():
-	instance = mob.instance()
+	instance = wave_set[enemy_number].instance()
 	$Caminho.add_child(instance)
-	$MobSFX.play()
 	mobs_left -=1
+	enemy_number += 1
 	if mobs_left <= 0:
-		MobTimer.stop()
-		wave += 1
+		wave  += 1
+		$MobTimer.stop()
 		if wave < len(wave_mobs):
-			WaveTimer.start()
+			$WaveTimer.start()
+			$MobSFX.play()
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
@@ -78,25 +92,22 @@ func _input(event):
 				tower.queue_free()
 				break
 
-func lose_a_life():
-	lives -= 10
+func lose_a_life(num):
+	lives -= num
 	lives = max(lives,0)
-	$LivesLabel.text = "lives: " + str(lives)
-
 
 func _on_Pause_button_down():
 	get_tree().paused = true
-	get_node("CanvasLayer").get_node("PauseMenu").visible = true
+	get_node("CanvasLayer/PauseMenu").visible = true
 
 func _on_Quit_button_down():
 	get_tree().quit()
 	
-
 func _on_Continue_button_down():
 	get_tree().paused = false
-	get_node("CanvasLayer").get_node("PauseMenu").visible = false
+	get_node("CanvasLayer/PauseMenu").visible = false
 
-func _on_Retry_pressed():
+func _on_Retry_button_down():
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

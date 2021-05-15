@@ -3,10 +3,6 @@
 [ext_resource path="res://Assets/Tiles/Tilesheet/colored_transparent.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Base/Projectile.gd" type="Script" id=2]
 
-
-
-
-
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 7, -7 )
 b = Vector2( -7.5, 7.5 )

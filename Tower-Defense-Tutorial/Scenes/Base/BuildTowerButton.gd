@@ -31,8 +31,9 @@ func _on_item_pressed(ID):
 	else:
 		TowerValue = 40
 	if self.get_node("../..").cash >= TowerValue:
-		self.disabled = true
-		self.visible = false
+		queue_free()
+#		self.disabled = true
+#		self.visible = false
 	emit_signal("build", ID, TowerPosition, TowerValue)
 	
 

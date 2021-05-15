@@ -3,16 +3,17 @@ class_name Torre
 
 signal destroy
 
-export var custo = 5
-export var raio_de_alcance = 50
-export var intervalo_de_ataque = 1
 onready var AtaqueTimer = $AtaqueTimer
 var inimigo_alvo = weakref(null)
 
+var damage = 1
+
+var level = 0
+var level_properties = [[50, 1, 1, Rect2(119, 323, 16, 16)]] #range, attack interval, damage and sprite
+
 # Ao entrar em cena, define as propriedades da torre de acordo com seu tipo
 func _ready():
-	$Alcance.shape.set_radius(raio_de_alcance)
-	AtaqueTimer.wait_time = intervalo_de_ataque
+	level_Up()
 	connect("destroy", self.get_parent(), "_on_Tower_destroyed")
 
 # A cada frame, se houver um inimigo alvo, inicia o timer de ataque, senão define o alvo
@@ -33,3 +34,9 @@ func _on_Torre_area_exited(area: Area2D):
 	if area.get_parent() == inimigo_alvo.get_ref(): inimigo_alvo = weakref(null)
 	if area.is_in_group("shot") and not area.is_in_group("mina"):
 		area.queue_free()
+
+func level_Up():
+	$Alcance.shape.set_radius(level_properties[level][0])
+	AtaqueTimer.wait_time = level_properties[level][1]
+	damage = level_properties[level][2]
+	$Sprite.region_rect = level_properties[level][3]
