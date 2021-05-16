@@ -39,11 +39,3 @@ func level_Up():
 	$Sprite.region_rect = level_properties[level][3]
 	
 	killcount = 0
-
-func destroy_Tower():
-	var instance = get_parent().tower_button.instance()
-	instance.rect_position = global_position - Vector2(8,8)
-	
-	get_parent().add_child(instance)
-	
-	queue_free()
