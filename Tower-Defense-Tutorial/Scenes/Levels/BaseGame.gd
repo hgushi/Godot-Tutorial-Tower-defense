@@ -20,7 +20,7 @@ var enemy_number = 0
 var cash = 30
 var lives = 10
 
-var towers = []
+#var towers = []
 var caminho = []
 
 var instance
@@ -54,7 +54,7 @@ func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 		
 		$ConstructSFX.play()
 		
-		towers.append(instance)
+#		towers.append(instance)
 		instance.set_position(TowerPosition)
 		add_child(instance)
 		
@@ -80,17 +80,17 @@ func _on_MobTimer_timeout():
 			$WaveTimer.start()
 			$MobSFX.play()
 
-func _input(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		for tower in towers:
-			if event.global_position.distance_to(tower.global_position) <= 16:
-				instance = tower_button.instance()
-				instance.rect_position = tower.position - Vector2(8,8)
-				self.add_child(instance)
-				
-				towers.erase(tower)
-				tower.queue_free()
-				break
+#func _unhandled_input(event):
+#	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+#		for tower in towers:
+#			if event.global_position.distance_to(tower.global_position) <= 16:
+#				instance = tower_button.instance()
+#				instance.rect_position = tower.position - Vector2(8,8)
+#				self.add_child(instance)
+#
+#				towers.erase(tower)
+#				tower.queue_free()
+#				break
 
 func lose_a_life(num):
 	lives -= num

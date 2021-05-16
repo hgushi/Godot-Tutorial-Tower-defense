@@ -23,16 +23,18 @@ func _on_Area2D_area_entered(projetil):
 	if projetil.is_in_group("shot"):
 		hp -= projetil.hit
 		emit_signal("arrowSFX")
-		projetil.queue_free()
 		if hp <= 0:
 			emit_signal("deathSFX")
 			get_parent().get_parent().add_cash(5)
 			queue_free()
+			projetil.get_parent().killcount += 1
+		projetil.queue_free()
 	if projetil.is_in_group("bomb"):
 		hp -= projetil.hit
 		emit_signal("bombSFX")
-		projetil.queue_free()
 		if hp <= 0:
 			emit_signal("deathSFX")
 			get_parent().get_parent().add_cash(5)
 			queue_free()
+			projetil.get_parent().killcount += 1
+		projetil.queue_free()

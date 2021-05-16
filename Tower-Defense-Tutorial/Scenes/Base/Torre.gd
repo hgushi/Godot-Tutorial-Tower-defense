@@ -1,20 +1,15 @@
 extends Area2D
 class_name Torre
 
-signal destroy
-
 onready var AtaqueTimer = $AtaqueTimer
 var inimigo_alvo = weakref(null)
 
 var damage = 1
 
-var level = 0
+var level = -1
 var level_properties = [[50, 1, 1, Rect2(119, 323, 16, 16)]] #range, attack interval, damage and sprite
 
-# Ao entrar em cena, define as propriedades da torre de acordo com seu tipo
-func _ready():
-	level_Up()
-	connect("destroy", self.get_parent(), "_on_Tower_destroyed")
+var killcount = 0
 
 # A cada frame, se houver um inimigo alvo, inicia o timer de ataque, senão define o alvo
 func _physics_process(_delta):
@@ -36,7 +31,19 @@ func _on_Torre_area_exited(area: Area2D):
 		area.queue_free()
 
 func level_Up():
+	level += 1
+	
 	$Alcance.shape.set_radius(level_properties[level][0])
 	AtaqueTimer.wait_time = level_properties[level][1]
 	damage = level_properties[level][2]
 	$Sprite.region_rect = level_properties[level][3]
+	
+	killcount = 0
+
+func destroy_Tower():
+	var instance = get_parent().tower_button.instance()
+	instance.rect_position = global_position - Vector2(8,8)
+	
+	get_parent().add_child(instance)
+	
+	queue_free()

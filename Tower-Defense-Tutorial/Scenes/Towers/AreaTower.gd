@@ -7,7 +7,8 @@ func _ready():
 						[55, 1, 2, Rect2(102, 323, 16, 16)],
 						[65, 0.5, 3, Rect2(102, 323, 16, 16)],
 						[70, 0.5, 4, Rect2(102, 323, 16, 16)]]
-						
+	level_Up()
+
 # A cada intervalo de ataque determinado, instancia 8 projeteis e atira na direção do inimigo alvo (com 22.5 graus entre eles)
 func _on_AtaqueTimer_timeout():
 	if not !inimigo_alvo.get_ref():

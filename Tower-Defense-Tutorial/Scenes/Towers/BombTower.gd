@@ -8,6 +8,7 @@ func _ready():
 						[60, 1, 4, Rect2(34, 323, 16, 16)],
 						[70, 0.75, 5, Rect2(34, 323, 16, 16)],
 						[80, 0.5, 6, Rect2(34, 323, 16, 16)]]
+	level_Up()
 
 func _on_AtaqueTimer_timeout():
 	set_Target()
