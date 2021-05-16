@@ -19,11 +19,9 @@ func _on_DestroyUpgradeButton_mouse_entered():
 func _on_DestroyUpgradeButton_mouse_exited():
 	modulate = Color(1, 1, 1, 0.3)
 
-func _on_item_pressed(ID):
-	if ID == 0:
+func _on_PopupMenu_id_pressed(id):
+	if id == 0:
 		emit_signal("destroy")
-	elif ID == 1:
+	elif id == 1:
 		emit_signal("upgrade")
 		$PopupMenu.set_item_disabled(1, true)
-	
-
