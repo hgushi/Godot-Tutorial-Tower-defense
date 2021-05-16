@@ -4,14 +4,13 @@ var bomb = load("res://Scenes/Base/Bomb.tscn")
 var path_in_range = []
 
 func _ready():
-	level_properties = [[50, 4, 3, Rect2(34, 323, 16, 16)],
-						[60, 4, 4, Rect2(34, 323, 16, 16)],
-						[70, 2, 5, Rect2(34, 323, 16, 16)],
-						[80, 1, 6, Rect2(34, 323, 16, 16)]]
+	level_properties = [[50, 5, 3, Rect2(136, 323, 16, 16)],
+						[60, 4, 4, Rect2(51, 323, 16, 16)],
+						[70, 2, 5, Rect2(34, 323, 16, 16)],]
 	level_Up()
 
 func _on_AtaqueTimer_timeout():
-	if get_child_count() <= 15:
+	if get_child_count() <= 20:
 		set_Target()
 		var projetil = bomb.instance()
 		projetil.hit = damage

@@ -80,4 +80,3 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="DestroyUpgrade"]
 margin_right = 16.0
 margin_bottom = 16.0
-[connection signal="id_pressed" from="DestroyUpgrade/PopupMenu" to="DestroyUpgrade" method="_on_PopupMenu_id_pressed"]
