@@ -132,18 +132,19 @@ volume_db = -5.0
 
 [node name="WinScene" parent="CanvasLayer" instance=ExtResource( 11 )]
 visible = false
-margin_left = -14.7747
-margin_top = -7.63631
-margin_right = -14.7748
-margin_bottom = -7.63629
-rect_scale = Vector2( 1.03, 1.03 )
+margin_left = 3.08209
+margin_top = -9.9921
+margin_right = 12.082
+margin_bottom = -5.99213
+rect_scale = Vector2( 1.02, 1.02 )
 
 [node name="LoseScene" parent="CanvasLayer" instance=ExtResource( 12 )]
 visible = false
-margin_left = 1.0
-margin_top = -8.0
-margin_right = 1.0
-margin_bottom = 10.0
+margin_left = 3.08209
+margin_top = -0.802895
+margin_right = 3.08203
+margin_bottom = -0.802917
+rect_scale = Vector2( 1.02, 1.02 )
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer"]
 pause_mode = 2

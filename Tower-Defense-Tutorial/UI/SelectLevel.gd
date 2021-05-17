@@ -1,6 +1,5 @@
 extends Control
 
-var scene3: = ""
 var level: int = 0
 func load_game():
 	var save_file : File = File.new()
@@ -49,7 +48,7 @@ func _on_Level2_button_down():
 		erro
 
 func _on_Level3_button_down():
-	var erro = get_tree().change_scene(scene3)
+	var erro = get_tree().change_scene("res://Scenes/Levels/Level_4.tscn")
 	if (erro == ERR_CANT_OPEN):
 		print("não consegui abrir")
 	elif (erro == ERR_CANT_CREATE):

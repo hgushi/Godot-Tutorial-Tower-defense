@@ -9,9 +9,9 @@ func _ready():
 	connect("upgrade", get_parent().get_parent(), "level_Up")
 	get_popup().connect("id_pressed", self, "_on_item_pressed")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var tower = get_parent().get_parent()
-	if tower.killcount >= 2 and tower.level < len(tower.level_properties) - 1:
+	if tower.killcount >= 3 and tower.level < len(tower.level_properties) - 1:
 		get_popup().set_item_disabled(1, false)
 
 func _on_DestroyUpgradeButton_mouse_entered():

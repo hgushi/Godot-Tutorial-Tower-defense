@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Tiles/teste_tileset2.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Base/DeathSFX.tscn" type="PackedScene" id=2]
@@ -9,10 +9,11 @@
 [ext_resource path="res://Assets/SFX/Construction.wav" type="AudioStream" id=7]
 [ext_resource path="res://Assets/SFX/DST-TowerDefenseTheme_1.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Assets/SFX/qubodup-GhostMoan03.wav" type="AudioStream" id=9]
-[ext_resource path="res://UI/WinSceneT.tscn" type="PackedScene" id=10]
-[ext_resource path="res://UI/LoseScene.tscn" type="PackedScene" id=11]
+[ext_resource path="res://UI/WinScene0.tscn" type="PackedScene" id=10]
+[ext_resource path="res://UI/LoseScene0.tscn" type="PackedScene" id=11]
 [ext_resource path="res://UI/PauseMenu.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Levels/Tutorial.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Base/BuildTowerButton.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -131,6 +132,12 @@ __meta__ = {
 wait_time = 8.0
 one_shot = true
 
+[node name="BuildTowerButton" parent="." instance=ExtResource( 14 )]
+margin_left = 204.5
+margin_top = 114.5
+margin_right = 220.5
+margin_bottom = 130.5
+
 [node name="Tutorial" type="ColorRect" parent="."]
 pause_mode = 2
 visible = false
@@ -146,10 +153,10 @@ __meta__ = {
 }
 
 [node name="Tutorial1" type="Label" parent="Tutorial"]
-margin_left = 35.4273
-margin_top = 9.08618
-margin_right = 480.427
-margin_bottom = 126.086
+margin_left = 10.4539
+margin_top = 4.92398
+margin_right = 455.454
+margin_bottom = 121.924
 text = "Oh a phantom! 
 You need to protect yourself!
 If the phatom reach the end your lives will decrease
@@ -161,13 +168,15 @@ __meta__ = {
 
 [node name="Tutorial2" type="Label" parent="Tutorial"]
 visible = false
-margin_left = 35.0816
-margin_top = 20.8111
-margin_right = 506.082
-margin_bottom = 89.8111
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 496.0
+margin_bottom = 133.0
 text = "To kill the phantom you will need to create a tower!
-Click in the black region to create a tower
-You can upgrade your tower or destroy it if you click it"
+Click in the button  to create a tower
+You can destroy it or
+upgrade your tower,if the tower kill 5 phantoms or more
+if you click it"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -194,21 +203,22 @@ text = "Continue"
 
 [node name="WinScene" parent="CanvasLayer" instance=ExtResource( 10 )]
 visible = false
-margin_left = -6.73492
-margin_top = -7.6326
-margin_right = 4.26514
-margin_bottom = 3.36743
+margin_left = 3.08209
+margin_top = -4.37051
+margin_right = 3.08203
+margin_bottom = -4.37048
 rect_scale = Vector2( 1.02, 1.02 )
 
 [node name="LoseScene" parent="CanvasLayer" instance=ExtResource( 11 )]
 visible = false
-margin_left = -2.245
-margin_top = -6.7348
-margin_right = -2.245
-margin_bottom = -6.7348
+margin_left = 2.0
+margin_top = -2.0
+margin_right = 12.0
+margin_bottom = 11.0
 rect_scale = Vector2( 1.02, 1.02 )
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer"]
+pause_mode = 2
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0

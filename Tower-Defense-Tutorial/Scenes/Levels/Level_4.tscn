@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://UI/WinScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/WinScene3.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Base/BuildTowerButton.tscn" type="PackedScene" id=2]
-[ext_resource path="res://UI/LoseScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/LoseScene3.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Base/DeathSFX.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Tiles/teste_tileset2.tres" type="TileSet" id=5]
 [ext_resource path="res://Assets/SFX/arrowHit01.wav" type="AudioStream" id=6]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Assets/SFX/DST-TowerDefenseTheme_1.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Assets/SFX/Construction.wav" type="AudioStream" id=10]
 [ext_resource path="res://Assets/Sprites/start-assets/new_theme.tres" type="Theme" id=11]
-[ext_resource path="res://UI/WinScene2.gd" type="Script" id=12]
 [ext_resource path="res://UI/PauseMenu.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/Levels/Level_4.gd" type="Script" id=14]
 
@@ -20,7 +19,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 39.4019, 17.7883, 0, 0, 0, 0, 39.2535, 129.66, 0, 0, 0, 0, 39.4474, 159.642, 0, 0, 0, 0, 198.697, 159.308, 0, 0, 0, 0, 198.697, 40.7971, 0, 0, 0, 0, 342.087, 40.7971, 0, 0, 0, 0, 342.087, 142.378, 0, 0, 0, 0, 214.629, 142.378, 0, 0, 0, 0, 214.629, 57.7272, 0, 0, 0, 0, 326.155, 57.7272, 0, 0, 0, 0, 326.155, 193.168, 0, 0, 0, 0, 405.816, 193.168, 0, 0, 0, 0, 405.816, 40.7971, 0, 0, 0, 0, 373.952, 40.7971, 0, 0, 0, 0, 373.952, 243.958, 0, 0, 0, 0, 509.376, 243.958 )
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 14 )
 
@@ -35,10 +34,6 @@ tile_data = PoolIntArray( 3, 0, 0, 4, 0, 0, 5, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 
 position = Vector2( 0.458746, 1.44412 )
 scale = Vector2( 1.00425, 0.945064 )
 curve = SubResource( 1 )
-
-[node name="Start_position" type="Position2D" parent="."]
-
-[node name="End_position" type="Position2D" parent="."]
 
 [node name="MobTimer" type="Timer" parent="."]
 
@@ -215,21 +210,19 @@ layer = 128
 
 [node name="WinScene" parent="CanvasLayer" instance=ExtResource( 1 )]
 visible = false
-anchor_right = 1.017
-margin_left = -21.0
-margin_top = -23.0
-margin_right = -38.408
-margin_bottom = -15.0
-rect_scale = Vector2( 1.1, 1.1 )
-script = ExtResource( 12 )
+margin_left = 3.87366
+margin_top = -8.7717
+margin_right = 12.8737
+margin_bottom = -4.77173
+rect_scale = Vector2( 1.02, 1.02 )
 
 [node name="LoseScene" parent="CanvasLayer" instance=ExtResource( 3 )]
 visible = false
-margin_left = -16.9706
-margin_top = -29.6985
-margin_right = -16.9706
-margin_bottom = -29.6985
-rect_scale = Vector2( 1.1, 1.1 )
+margin_left = 3.87366
+margin_top = 0.350761
+margin_right = 3.87354
+margin_bottom = 0.350769
+rect_scale = Vector2( 1.02, 1.02 )
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer"]
 pause_mode = 2
@@ -295,3 +288,9 @@ text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
+[connection signal="button_down" from="Pause" to="." method="_on_Pause_button_down"]
+[connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Continue" to="." method="_on_Continue_button_down"]
+[connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Retry" to="." method="_on_Retry_button_down"]
+[connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Quit" to="." method="_on_Quit_button_down"]

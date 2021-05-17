@@ -6,17 +6,6 @@
 [ext_resource path="res://Scenes/Base/BuildTowerButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/SFX/qubodup-GhostMoan03.wav" type="AudioStream" id=6]
 
-
-
-
-
-
-
-
-
-
-
-
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -0.996371, 79.2332, 0, 0, 0, 0, 86.5075, 79.2332, 0, 0, 0, 0, 86.5075, 112.884, 0, 0, 0, 0, 197.876, 112.884, 0, 0, 0, 0, 197.876, 79.2332, 0, 0, 0, 0, 277.425, 79.2332, 0, 0, 0, 0, 277.425, 129.71, 0, 0, 0, 0, 436.523, 129.71, 0, 0, 0, 0, 436.523, 197.012, 0, 0, 0, 0, 388.794, 197.012, 0, 0, 0, 0, 388.794, 281.14, 0, 0, 0, 0, 508.117, 281.14 )

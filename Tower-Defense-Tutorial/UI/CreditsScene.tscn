@@ -1,17 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://UI/SaveF.gd" type="Script" id=1]
+[ext_resource path="res://UI/Save3.gd" type="Script" id=1]
 [ext_resource path="res://UI/Save.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Quit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Sprites/start-assets/new_theme.tres" type="Theme" id=4]
 [ext_resource path="res://UI/CreditsScene.gd" type="Script" id=5]
 [ext_resource path="res://Assets/SFX/abc.ogg" type="AudioStream" id=6]
-
-
-
-
-
-
 
 [node name="CreditsScene" type="Control"]
 anchor_right = 1.0
@@ -22,9 +16,9 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 2.11534
-margin_right = 1025.11
-margin_bottom = 596.0
+margin_left = 2.0
+margin_right = 1034.0
+margin_bottom = 608.0
 color = Color( 0.0431373, 0.239216, 0.913725, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -71,7 +65,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SaveF" parent="." instance=ExtResource( 2 )]
+[node name="Save" parent="." instance=ExtResource( 2 )]
 margin_left = -1.0275
 margin_top = 490.588
 margin_right = 50.9725
