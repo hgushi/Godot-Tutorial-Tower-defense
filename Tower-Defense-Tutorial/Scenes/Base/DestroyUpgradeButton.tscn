@@ -71,7 +71,7 @@ margin_bottom = 20.0
 rect_pivot_offset = Vector2( 1, 1 )
 theme = SubResource( 3 )
 custom_constants/hseparation = 10
-items = [ "Destroy Tower", null, 0, false, false, 0, 0, null, "", false, "Upgrade Tower", null, 0, false, true, 1, 0, null, "", false ]
+items = [ "Destroy Tower", null, 0, false, false, 0, 0, null, "", false, "Upgrade Tower ", null, 0, false, true, 1, 0, null, "", false ]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

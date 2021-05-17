@@ -36,9 +36,10 @@ onready var ArrowSFX = $ArrowSFX
 onready var BombSFX = $BombSFX
 onready var DeathSFX = $DeathSFX
 
+signal money
+
 func _ready():
 	get_tree().paused = false
-
 	for point in Caminho.get_curve().get_baked_points():
 		caminho.append(to_global(point))
 
@@ -77,6 +78,9 @@ func add_cash(num):
 
 func reduce_cash(cost):
 	cash -= cost
+	
+func emit_cash():
+	emit_signal("money",cash)
 
 func _on_WaveTimer_timeout():
 	mobs_left = wave_mobs[wave]

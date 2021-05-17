@@ -15,7 +15,7 @@ var killcount = 0
 
 signal cost
 func _ready():
-	connect("cost",get_parent(),"reduce_cash")
+	connect("cost",$DestroyUpgrade,"price")
 
 # A cada frame, se houver um inimigo alvo, inicia o timer de ataque, senão define o alvo
 func _physics_process(_delta):
@@ -38,10 +38,10 @@ func _on_Torre_area_exited(area: Area2D):
 
 func level_Up():
 	level += 1
-	
+	var cost = level_properties[level][4]
 	Alcance.shape.set_radius(level_properties[level][0])
 	AtaqueTimer.wait_time = level_properties[level][1]
 	damage = level_properties[level][2]
 	Sprite.region_rect = level_properties[level][3]
-	emit_signal("cost",level_properties[level][4])
+	emit_signal("cost",cost)
 	killcount = 0
