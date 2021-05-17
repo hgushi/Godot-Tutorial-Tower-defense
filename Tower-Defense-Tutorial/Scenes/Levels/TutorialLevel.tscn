@@ -153,30 +153,29 @@ __meta__ = {
 }
 
 [node name="Tutorial1" type="Label" parent="Tutorial"]
-margin_left = 10.4539
-margin_top = 4.92398
-margin_right = 455.454
-margin_bottom = 121.924
+visible = false
+margin_left = 35.4273
+margin_top = 9.08618
+margin_right = 480.427
+margin_bottom = 126.086
 text = "Oh a phantom! 
-You need to protect yourself!
-If the phatom reach the end your lives will decrease
-If lives = 0, you will die!
+You need to protect yourself! If the phatom reaches
+the end of the path your lives will decrease
+If you reach 0 lives, you die!
 "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Tutorial2" type="Label" parent="Tutorial"]
-visible = false
-margin_left = 10.0
-margin_top = 5.0
-margin_right = 496.0
-margin_bottom = 133.0
-text = "To kill the phantom you will need to create a tower!
-Click in the button  to create a tower
-You can destroy it or
-upgrade your tower,if the tower kill 5 phantoms or more
-if you click it"
+margin_left = 35.0816
+margin_top = 9.3111
+margin_right = 506.082
+margin_bottom = 102.311
+text = "To kill the phantom you need to build a tower!
+Click anywhere on the brown region to build.
+Click on a built tower to destroy it...
+or upgrade it after it's killed a few enemies"
 __meta__ = {
 "_edit_use_anchors_": false
 }
