@@ -16,7 +16,6 @@ var wave_set = [mob,]
 var wave = 0
 var mobs_left = 0
 var enemy_number = 0
-
 var cash = 30
 var lives = 10
 
@@ -35,8 +34,10 @@ onready var WaveTimer = $WaveTimer
 onready var ArrowSFX = $ArrowSFX
 onready var BombSFX = $BombSFX
 onready var DeathSFX = $DeathSFX
+onready var MobSFXTimer= $MobSFXTimer
+onready var ErrorSFX = $ErrorSFX
 
-signal money
+#signal money
 
 func _ready():
 	get_tree().paused = false
@@ -69,24 +70,26 @@ func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 #		towers.append(instance)
 		instance.set_position(TowerPosition)
 		add_child(instance)
-		
-	if cash >= TowerValue:
 		cash -= TowerValue
+	else:
+		ErrorSFX.play()
 
 func add_cash(num):
 		cash += num
 
-func reduce_cash(cost):
-	cash -= cost
+#func reduce_cash(cost):
+	#cash -= cost
 	
-func emit_cash():
-	emit_signal("money",cash)
+#func emit_cash():
+	#emit_signal("money",cash)
 
 func _on_WaveTimer_timeout():
 	mobs_left = wave_mobs[wave]
 	MobTimer.start()
 
 func _on_MobTimer_timeout():
+	if MobSFXTimer.is_stopped() == true:
+		MobSFXTimer.start()
 	instance = wave_set[enemy_number].instance()
 	Caminho.add_child(instance)
 	mobs_left -=1
@@ -96,7 +99,10 @@ func _on_MobTimer_timeout():
 		MobTimer.stop()
 		if wave < len(wave_mobs):
 			WaveTimer.start()
-			MobSFX.play()
+			MobSFXTimer.stop()
+
+func _on_MobSFXTimer_timeout():
+	MobSFX.play()
 
 #func _unhandled_input(event):
 #	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
@@ -137,4 +143,7 @@ func bombSFX():
 	
 func deathSFX():
 	DeathSFX.play()
+	
+func constructionSFX():
+	ConstructSFX.play()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Levels/Level_3.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/teste_tileset2.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://UI/WinScene2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://UI/LoseScene2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Base/BuildTowerButton.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/SFX/ALERT_Error.wav" type="AudioStream" id=14]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -41,6 +42,10 @@ curve = SubResource( 1 )
 wait_time = 8.0
 one_shot = true
 autostart = true
+
+[node name="MobSFXTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -0.762146
@@ -128,7 +133,12 @@ volume_db = -10.0
 stream = ExtResource( 6 )
 volume_db = -5.0
 
+[node name="ErrorSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -12.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
 
 [node name="WinScene" parent="CanvasLayer" instance=ExtResource( 11 )]
 visible = false
@@ -317,6 +327,7 @@ margin_right = 402.783
 margin_bottom = 209.762
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
+[connection signal="timeout" from="MobSFXTimer" to="." method="_on_MobSFXTimer_timeout"]
 [connection signal="button_down" from="Pause" to="." method="_on_Pause_button_down"]
 [connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Continue" to="." method="_on_Continue_button_down"]
 [connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Retry" to="." method="_on_Retry_button_down"]

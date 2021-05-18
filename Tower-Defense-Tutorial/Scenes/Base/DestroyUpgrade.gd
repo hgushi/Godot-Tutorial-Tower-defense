@@ -1,20 +1,20 @@
 extends MenuButton
 
-signal destroy
+#signal destroy
 signal upgrade
-signal find_cash
-signal active_reduce_cash
-signal money
-var price
-var my_cash
+#signal find_cash
+#signal active_reduce_cash
+#signal money
+#var price
+#var my_cash
 onready var PopupMenu = $PopupMenu
 
 func _ready():
 	modulate = Color(1, 1, 1, 0.3)
 	connect("upgrade", get_parent().get_parent(), "level_Up")
-	connect("find_cash",get_parent().get_parent().get_parent(),"emit_cash")
-	connect("money",self,"my_money")
-	connect("active_reduce_cash",get_parent().get_parent().get_parent(),"reduce_cash")
+	#connect("find_cash",get_parent().get_parent().get_parent(),"emit_cash")
+	#connect("money",self,"my_money")
+	#connect("active_reduce_cash",get_parent().get_parent().get_parent(),"reduce_cash")
 	get_popup().connect("id_pressed", self, "_on_item_pressed")
 
 #func _process(_delta):
@@ -36,14 +36,14 @@ func _on_item_pressed(id):
 	if id == 0:
 		get_parent().get_parent().queue_free()
 	elif id == 1:
-		emit_signal("find_cash")
-		if my_cash >= price:
-			emit_signal("upgrade")
-			emit_signal("active_reduce_cash")
-			get_popup().set_item_disabled(1,true)
+		#emit_signal("find_cash")
+		#if my_cash >= price:
+		emit_signal("upgrade")
+			#emit_signal("active_reduce_cash",price)
+		get_popup().set_item_disabled(1,true)
 
-func price(cost):
-	price = cost
+#func _price(cost):
+	#price = cost
 
-func my_money(money):
-	my_cash = money
+#func my_money(money):
+	#my_cash = money

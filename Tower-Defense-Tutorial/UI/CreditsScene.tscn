@@ -38,10 +38,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 18.0
-margin_top = 170.0
-margin_right = 961.0
-margin_bottom = 467.0
+margin_left = 32.2705
+margin_top = 162.865
+margin_right = 975.271
+margin_bottom = 482.865
 text = "This game is a UspGameDev's project and was developed by:
 	Débora Prudêncio 
 	Heitor Gushiken Junior
@@ -59,7 +59,8 @@ The assets used in this game were created by:
 	cynicmusic( awake10_megaWall): https://opengameart.org/content/awake-megawall-10
 	Matthew Pablo(Grassy World (8-Bit_Orchestral Overture) - Main Title Theme): https://opengameart.org/content/grassy-world-overture-8bitorchestral
 	cynicmusic(song18): https://opengameart.org/content/crystal-cave-song18
- 	Lamoot(rock_breaking): https://opengameart.org/content/rockbreaking"
+ 	Lamoot(rock_breaking): https://opengameart.org/content/rockbreaking
+	David McKee -ViRiX( UI pack 1): https://opengameart.org/content/ui-sound-effects-pack / soundcloud.com/virix"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

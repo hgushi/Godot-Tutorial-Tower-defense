@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Base/BuildTowerButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Levels/Level_2.gd" type="Script" id=2]
@@ -13,10 +13,11 @@
 [ext_resource path="res://UI/WinScene1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/SFX/arrowHit01.wav" type="AudioStream" id=12]
 [ext_resource path="res://Assets/SFX/explodemini.wav" type="AudioStream" id=13]
+[ext_resource path="res://Assets/SFX/ALERT_Error.wav" type="AudioStream" id=14]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 39.4019, 17.7883, 0, 0, 0, 0, 39.2535, 129.66, 0, 0, 0, 0, 39.4474, 159.642, 0, 0, 0, 0, 134.773, 158.383, 0, 0, 0, 0, 135.366, 62.1207, 0, 0, 0, 0, 245.605, 62.4076, 0, 0, 0, 0, 245.605, 197.012, 0, 0, 0, 0, 119.423, 196.445, 0, 0, 0, 0, 119.091, 244.467, 0, 0, 0, 0, 372.301, 243.408, 0, 0, 0, 0, 391.575, 243.761, 0, 0, 0, 0, 391.486, 144.145, 0, 0, 0, 0, 509.119, 144.145 )
+"points": PoolVector2Array( 0, 0, 0, 0, 39.4019, 17.7883, 0, 0, 0, 0, 39.2535, 129.66, 0, 0, 0, 0, 39.4474, 159.642, 0, 0, 0, 0, 134.773, 158.383, 0, 0, 0, 0, 136.074, 59.7056, 0, 0, 0, 0, 246.202, 59.0764, 0, 0, 0, 0, 246.202, 193.089, 0, 0, 0, 0, 119.495, 193.718, 0, 0, 0, 0, 119.091, 244.467, 0, 0, 0, 0, 389.487, 244.052, 0, 0, 0, 0, 391.486, 144.145, 0, 0, 0, 0, 509.119, 144.145 )
 }
 
 [node name="Game" type="Node2D"]
@@ -41,6 +42,10 @@ curve = SubResource( 1 )
 wait_time = 8.0
 one_shot = true
 autostart = true
+
+[node name="MobSFXTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 1.0
@@ -176,7 +181,7 @@ volume_db = -3.0
 
 [node name="MusicLevel" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -10.0
+volume_db = -13.0
 autoplay = true
 
 [node name="DeathSFX" parent="." instance=ExtResource( 6 )]
@@ -193,6 +198,10 @@ volume_db = -10.0
 stream = ExtResource( 13 )
 volume_db = -5.0
 
+[node name="ErrorSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -12.0
+
 [node name="Pause" type="Button" parent="."]
 margin_left = 461.482
 margin_top = -1.68412
@@ -206,6 +215,7 @@ __meta__ = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
 layer = 128
 
 [node name="WinScene" parent="CanvasLayer" instance=ExtResource( 11 )]
@@ -290,6 +300,7 @@ __meta__ = {
 }
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
+[connection signal="timeout" from="MobSFXTimer" to="." method="_on_MobSFXTimer_timeout"]
 [connection signal="button_down" from="Pause" to="." method="_on_Pause_button_down"]
 [connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Continue" to="." method="_on_Continue_button_down"]
 [connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Retry" to="." method="_on_Retry_button_down"]

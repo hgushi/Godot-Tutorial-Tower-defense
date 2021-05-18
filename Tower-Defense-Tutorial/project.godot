@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Torre",
 "language": "GDScript",
 "path": "res://Scenes/Base/Torre.gd"
+}, {
+"base": "MenuButton",
+"class": "Transition",
+"language": "GDScript",
+"path": "res://Scenes/Base/Transition.gd"
 } ]
 _global_script_class_icons={
 "BaseGame": "",
-"Torre": ""
+"Torre": "",
+"Transition": ""
 }
 
 [application]
