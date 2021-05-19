@@ -36,8 +36,7 @@ onready var BombSFX = $BombSFX
 onready var DeathSFX = $DeathSFX
 onready var MobSFXTimer= $MobSFXTimer
 onready var ErrorSFX = $ErrorSFX
-
-#signal money
+onready var SpeedButton = $SpeedButton
 
 func _ready():
 	get_tree().paused = false
@@ -77,11 +76,8 @@ func _on_BuildTowerButton_pressed(ID, TowerPosition, TowerValue):
 func add_cash(num):
 		cash += num
 
-#func reduce_cash(cost):
-	#cash -= cost
-	
-#func emit_cash():
-	#emit_signal("money",cash)
+func reduce_cash(price):
+	cash -= price
 
 func _on_WaveTimer_timeout():
 	mobs_left = wave_mobs[wave]
@@ -119,6 +115,17 @@ func _on_MobSFXTimer_timeout():
 func lose_a_life(num):
 	lives -= num
 	lives = max(lives,0)
+
+func _on_SpeedButton_button_down():
+	if Engine.time_scale == 1.0:
+		Engine.time_scale = 1.5
+		SpeedButton.text = "1.5x"
+	elif Engine.time_scale == 1.5:
+		Engine.time_scale = 2.0
+		SpeedButton.text = "2.0x"
+	else:
+		Engine.time_scale = 1.0
+		SpeedButton.text = "1.0x"
 
 func _on_Pause_button_down():
 	get_tree().paused = true

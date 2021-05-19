@@ -67,9 +67,9 @@ __meta__ = {
 }
 
 [node name="LivesLabel" type="Label" parent="."]
-margin_left = 113.0
+margin_left = 105.704
 margin_top = -1.0
-margin_right = 184.0
+margin_right = 176.704
 margin_bottom = 20.0
 theme = ExtResource( 11 )
 __meta__ = {
@@ -77,20 +77,20 @@ __meta__ = {
 }
 
 [node name="WaveLabel" type="Label" parent="."]
-margin_left = 243.593
-margin_top = -1.09182
-margin_right = 283.593
-margin_bottom = 19.9082
+margin_left = 211.603
+margin_top = -0.53059
+margin_right = 251.603
+margin_bottom = 20.4694
 theme = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LevelLabel" type="Label" parent="."]
-margin_left = 349.031
-margin_top = -1.31631
-margin_right = 410.031
-margin_bottom = 19.6837
+margin_left = 311.99
+margin_top = -1.87754
+margin_right = 377.99
+margin_bottom = 19.1225
 theme = ExtResource( 11 )
 text = "Level: 4"
 __meta__ = {
@@ -203,13 +203,25 @@ stream = ExtResource( 12 )
 volume_db = -12.0
 
 [node name="Pause" type="Button" parent="."]
-margin_left = 461.482
+margin_left = 464.849
 margin_top = -1.68412
-margin_right = 525.482
+margin_right = 528.849
 margin_bottom = 25.3159
-rect_scale = Vector2( 0.8, 0.8 )
+rect_scale = Vector2( 0.7, 0.7 )
 theme = ExtResource( 11 )
 text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedButton" type="Button" parent="."]
+margin_left = 404.647
+margin_top = -2.24492
+margin_right = 448.647
+margin_bottom = 24.7551
+rect_scale = Vector2( 0.7, 0.7 )
+theme = ExtResource( 11 )
+text = "1.0x"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -302,6 +314,7 @@ __meta__ = {
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
 [connection signal="timeout" from="MobSFXTimer" to="." method="_on_MobSFXTimer_timeout"]
 [connection signal="button_down" from="Pause" to="." method="_on_Pause_button_down"]
+[connection signal="button_down" from="SpeedButton" to="." method="_on_SpeedButton_button_down"]
 [connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Continue" to="." method="_on_Continue_button_down"]
 [connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Retry" to="." method="_on_Retry_button_down"]
 [connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Quit" to="." method="_on_Quit_button_down"]

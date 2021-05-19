@@ -7,16 +7,14 @@ onready var Sprite = $Sprite
 var inimigo_alvo = weakref(null)
 
 var damage = 1
-
+var cost = 10
 var level = -1
 var level_properties = [[50, 1, 1, Rect2(119, 323, 16, 16)],10] #range, attack interval, damage, sprite and value
 
 var killcount = 0
 
 signal Construction
-#signal cost
 func _ready():
-	#connect("cost",$DestroyUpgradeButton,"_price")
 	connect("Construction",get_parent(),"constructionSFX")
 
 # A cada frame, se houver um inimigo alvo, inicia o timer de ataque, senão define o alvo
@@ -40,11 +38,10 @@ func _on_Torre_area_exited(area: Area2D):
 
 func level_Up():
 	level += 1
-	#var cost = level_properties[level][4]
 	Alcance.shape.set_radius(level_properties[level][0])
 	AtaqueTimer.wait_time = level_properties[level][1]
 	damage = level_properties[level][2]
 	Sprite.region_rect = level_properties[level][3]
+	cost = level_properties[level][4]
 	emit_signal("Construction")
-	#emit_signal("cost",cost)
 	killcount = 0

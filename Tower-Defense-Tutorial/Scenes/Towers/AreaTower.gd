@@ -3,9 +3,9 @@ extends Torre
 var flecha = load("res://Scenes/Base/Projectile.tscn")
 
 func _ready():
-	level_properties = [[50, 3, 3, Rect2(289, 238, 16, 16),40],
-						[55, 2, 6, Rect2(102, 323, 16, 16),50],
-						[65, 1, 9, Rect2(85, 323, 16, 16),60]]
+	level_properties = [[50, 3, 3, Rect2(289, 238, 16, 16),50],
+						[55, 2, 6, Rect2(102, 323, 16, 16),60],
+						[65, 1, 9, Rect2(85, 323, 16, 16),100]]
 	level_Up()
 
 # A cada intervalo de ataque determinado, instancia 8 projeteis e atira na direção do inimigo alvo (com 22.5 graus entre eles)

@@ -59,18 +59,18 @@ __meta__ = {
 
 [node name="CashLabel" type="Label" parent="."]
 margin_left = 0.741745
-margin_top = -2.99662
+margin_top = -2.52468
 margin_right = 66.7418
-margin_bottom = 29.0034
+margin_bottom = 29.4753
 theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LivesLabel" type="Label" parent="."]
-margin_left = 105.706
+margin_left = 98.9303
 margin_top = -1.69753
-margin_right = 181.706
+margin_right = 174.93
 margin_bottom = 30.3024
 theme = ExtResource( 4 )
 __meta__ = {
@@ -78,20 +78,20 @@ __meta__ = {
 }
 
 [node name="WaveLabel" type="Label" parent="."]
-margin_left = 231.329
-margin_top = -2.47732
-margin_right = 300.329
-margin_bottom = 29.5227
+margin_left = 199.277
+margin_top = -1.06151
+margin_right = 268.277
+margin_bottom = 30.9385
 theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LevelLabel" type="Label" parent="."]
-margin_left = 355.319
-margin_top = -3.20243
-margin_right = 425.319
-margin_bottom = 28.7976
+margin_left = 304.853
+margin_top = -1.78662
+margin_right = 374.853
+margin_bottom = 30.2134
 theme = ExtResource( 4 )
 text = "Level: 2"
 __meta__ = {
@@ -99,13 +99,25 @@ __meta__ = {
 }
 
 [node name="Pause" type="Button" parent="."]
-margin_left = 463.748
-margin_top = -4.40978
-margin_right = 527.748
-margin_bottom = 22.5902
-rect_scale = Vector2( 0.8, 0.8 )
+margin_left = 467.523
+margin_top = -2.52203
+margin_right = 531.523
+margin_bottom = 24.478
+rect_scale = Vector2( 0.7, 0.7 )
 theme = ExtResource( 4 )
 text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedButton" type="Button" parent="."]
+margin_left = 409.169
+margin_top = -2.83162
+margin_right = 453.169
+margin_bottom = 24.1684
+rect_scale = Vector2( 0.7, 0.7 )
+theme = ExtResource( 4 )
+text = "1.0x"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -329,6 +341,7 @@ margin_bottom = 209.762
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
 [connection signal="timeout" from="MobSFXTimer" to="." method="_on_MobSFXTimer_timeout"]
 [connection signal="button_down" from="Pause" to="." method="_on_Pause_button_down"]
+[connection signal="button_down" from="SpeedButton" to="." method="_on_SpeedButton_button_down"]
 [connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Continue" to="." method="_on_Continue_button_down"]
 [connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Retry" to="." method="_on_Retry_button_down"]
 [connection signal="button_down" from="CanvasLayer/PauseMenu/VBoxContainer/Quit" to="." method="_on_Quit_button_down"]

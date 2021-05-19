@@ -4,9 +4,9 @@ var bomb = load("res://Scenes/Base/Bomb.tscn")
 var path_in_range = []
 
 func _ready():
-	level_properties = [[50, 5, 4, Rect2(136, 323, 16, 16),25],
-						[60, 4.5, 7, Rect2(51, 323, 16, 16),40],
-						[70, 4, 10, Rect2(34, 323, 16, 16),55]]
+	level_properties = [[50, 5, 4, Rect2(136, 323, 16, 16),40],
+						[60, 4.5, 7, Rect2(51, 323, 16, 16),55],
+						[70, 4, 10, Rect2(34, 323, 16, 16),100]]
 	level_Up()
 
 func _on_AtaqueTimer_timeout():
