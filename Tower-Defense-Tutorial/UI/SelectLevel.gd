@@ -21,37 +21,16 @@ func _ready ():
 		
 
 func _on_Tutorial_button_down():
-	var erro = get_tree().change_scene("res://Scenes/Levels/TutorialLevel.tscn")
-	if (erro == ERR_CANT_OPEN):
-		print("não consegui abrir")
-	elif (erro == ERR_CANT_CREATE):
-		print("não consegui instancia")
-	else:
-		erro
+	get_tree().change_scene("res://Scenes/Levels/TutorialLevel.tscn")
+
 
 func _on_Level1_button_down():
-	var erro = get_tree().change_scene("res://Scenes/Levels/Level_2.tscn")
-	if (erro == ERR_CANT_OPEN):
-		print("não consegui abrir")
-	elif (erro == ERR_CANT_CREATE):
-		print("não consegui instancia")
-	else:
-		erro
+	 get_tree().change_scene("res://Scenes/Levels/Level_2.tscn")
+
 
 func _on_Level2_button_down():
-	var erro = get_tree().change_scene("res://Scenes/Levels/Level_3.tscn")
-	if (erro == ERR_CANT_OPEN):
-		print("não consegui abrir")
-	elif (erro == ERR_CANT_CREATE):
-		print("não consegui instancia")
-	else:
-		erro
+	get_tree().change_scene("res://Scenes/Levels/Level_3.tscn")
+
 
 func _on_Level3_button_down():
-	var erro = get_tree().change_scene("res://Scenes/Levels/Level_4.tscn")
-	if (erro == ERR_CANT_OPEN):
-		print("não consegui abrir")
-	elif (erro == ERR_CANT_CREATE):
-		print("não consegui instancia")
-	else:
-		erro
+	get_tree().change_scene("res://Scenes/Levels/Level_4.tscn")

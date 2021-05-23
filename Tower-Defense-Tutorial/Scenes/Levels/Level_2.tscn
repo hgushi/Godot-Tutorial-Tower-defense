@@ -232,11 +232,10 @@ layer = 128
 
 [node name="WinScene" parent="CanvasLayer" instance=ExtResource( 11 )]
 visible = false
-margin_left = 3.08209
-margin_top = -4.37051
-margin_right = 3.08203
-margin_bottom = -4.37048
-rect_scale = Vector2( 1.02, 1.02 )
+margin_left = 2.89166
+margin_top = -3.87048
+margin_right = 2.8916
+margin_bottom = -3.87048
 
 [node name="LoseScene" parent="CanvasLayer" instance=ExtResource( 10 )]
 visible = false

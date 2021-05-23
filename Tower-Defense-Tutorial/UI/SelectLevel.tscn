@@ -4,12 +4,6 @@
 [ext_resource path="res://Assets/Sprites/start-assets/new_theme.tres" type="Theme" id=2]
 [ext_resource path="res://UI/SelectLevel.gd" type="Script" id=3]
 
-
-
-
-
-
-
 [node name="SelectLevel" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
