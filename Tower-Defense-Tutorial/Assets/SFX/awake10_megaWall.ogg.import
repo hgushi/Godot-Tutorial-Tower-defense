@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/awake10_megaWall.ogg-8e70eb4f7961e97621d4b221be56b26b.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/awake10_megaWall.ogg"
+dest_files=[ "res://.import/awake10_megaWall.ogg-8e70eb4f7961e97621d4b221be56b26b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

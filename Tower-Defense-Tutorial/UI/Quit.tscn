@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Sprites/start-assets/new_theme.tres" type="Theme" id=2]
+
+[node name="Quit" type="Button"]
+margin_right = 12.0
+margin_bottom = 20.0
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 2 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}

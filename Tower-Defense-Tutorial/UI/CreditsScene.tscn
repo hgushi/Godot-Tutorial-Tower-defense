@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/Save3.gd" type="Script" id=1]
+[ext_resource path="res://UI/Save.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Quit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sprites/start-assets/new_theme.tres" type="Theme" id=4]
+[ext_resource path="res://UI/CreditsScene.gd" type="Script" id=5]
+[ext_resource path="res://Assets/SFX/abc.ogg" type="AudioStream" id=6]
+
+[node name="CreditsScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 2.0
+margin_right = 1034.0
+margin_bottom = 608.0
+color = Color( 0.0431373, 0.239216, 0.913725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Congratulations!" type="Label" parent="."]
+margin_left = 33.7267
+margin_top = 14.3848
+margin_right = 245.727
+margin_bottom = 59.3848
+rect_scale = Vector2( 4, 3 )
+theme = ExtResource( 4 )
+text = "Congratulations! 
+You finished the game!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 32.2705
+margin_top = 162.865
+margin_right = 975.271
+margin_bottom = 482.865
+text = "This game is a UspGameDev's project and was developed by:
+	Débora Prudêncio 
+	Heitor Gushiken Junior
+	João Pedro Cabral Miranda
+	Suely Silva
+The assets used in this game were created by:
+	GD Quest(star-assets): https://github.com/GDQuest/godot-beginner-2d-platformer/releases/tag/1.1.0
+	Kenney(1 bit pack): https://www.kenney.nl/assets/bit-pack
+	qubodup(arrowhits): https://opengameart.org/content/arrow-hit-twang
+	qubodup(qubodup-GhostMoans): https://opengameart.org/content/ghost-monster-voice-moaning-growling
+	aesqe(monster_growl): https://freesound.org/people/aesqe/sounds/49127/
+	pauliuw (actions): https://opengameart.org/content/action-sounds
+	Joth(Cyberpunk Moonlight Sonata): https://opengameart.org/content/cyberpunk-moonlight-sonata
+	DST( DST-TowerDefenseTheme): https://opengameart.org/content/tower-defense-theme
+	cynicmusic( awake10_megaWall): https://opengameart.org/content/awake-megawall-10
+	Matthew Pablo(Grassy World (8-Bit_Orchestral Overture) - Main Title Theme): https://opengameart.org/content/grassy-world-overture-8bitorchestral
+	cynicmusic(song18): https://opengameart.org/content/crystal-cave-song18
+ 	Lamoot(rock_breaking): https://opengameart.org/content/rockbreaking
+	David McKee -ViRiX( UI pack 1): https://opengameart.org/content/ui-sound-effects-pack / soundcloud.com/virix"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" parent="." instance=ExtResource( 2 )]
+margin_left = -1.0275
+margin_top = 490.588
+margin_right = 50.9725
+margin_bottom = 517.588
+script = ExtResource( 1 )
+
+[node name="Quit" parent="." instance=ExtResource( 3 )]
+margin_left = 829.073
+margin_top = 492.662
+margin_right = 878.073
+margin_bottom = 519.662
+
+[node name="CreditsMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -20.0
+autoplay = true
+[connection signal="button_down" from="Quit" to="." method="_on_Quit_button_down"]
